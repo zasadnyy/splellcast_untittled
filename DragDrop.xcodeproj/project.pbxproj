@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13D6258D1719B68700744746 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 13D625861719B68700744746 /* base64.c */; };
+		13D6258E1719B68700744746 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D625891719B68700744746 /* NSData+SRB64Additions.m */; };
+		13D6258F1719B68700744746 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D6258C1719B68700744746 /* SRWebSocket.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F3B9A2D0EF2145700286867 /* DragDropAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* DragDropAppDelegate.m */; };
 		35FECCB01291C55C006DC1C4 /* attribution.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35FECCAA1291C55C006DC1C4 /* attribution.txt */; };
@@ -87,6 +90,11 @@
 		5D8BDD9817199964007D4410 /* Tank_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8417199964007D4410 /* Tank_P1.png */; };
 		5D8BDD9917199964007D4410 /* Tank_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8517199964007D4410 /* Tank_P2-hd.png */; };
 		5D8BDD9A17199964007D4410 /* Tank_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8617199964007D4410 /* Tank_P2.png */; };
+		7A0BB1AEF1B8D09E4CF81647 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BB130BFD837F56B2C3252 /* libicucore.dylib */; };
+		7A0BB42D00FD2BCE4B975D70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBFBCC3D5C73920A0EFFF /* Security.framework */; };
+		7A0BB888045A3246C88012FE /* SRWebSocketExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */; };
+		7A0BBE345789E956894ADE1E /* WebSocketDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */; };
+		7A0BBFDD01D1BBA50F393D06 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBD9CD39C20022E88253D /* CFNetwork.framework */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -264,6 +272,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13D625861719B68700744746 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		13D625871719B68700744746 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		13D625881719B68700744746 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		13D625891719B68700744746 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		13D6258A1719B68700744746 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		13D6258B1719B68700744746 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		13D6258C1719B68700744746 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* DragDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3B9A2B0EF2145700286867 /* DragDropAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragDropAppDelegate.m; path = Classes/DragDropAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* DragDropAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragDropAppDelegate.h; path = Classes/DragDropAppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -342,6 +357,13 @@
 		5D8BDD8417199964007D4410 /* Tank_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P1.png; sourceTree = "<group>"; };
 		5D8BDD8517199964007D4410 /* Tank_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank_P2-hd.png"; sourceTree = "<group>"; };
 		5D8BDD8617199964007D4410 /* Tank_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P2.png; sourceTree = "<group>"; };
+		7A0BB130BFD837F56B2C3252 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		7A0BB7072053EFAECF67AA04 /* SRWebSocketExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocketExtension.h; sourceTree = "<group>"; };
+		7A0BB9FE28FAAB6590538893 /* WebSocketDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketDelegate.h; sourceTree = "<group>"; };
+		7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketDelegate.m; sourceTree = "<group>"; };
+		7A0BBD9CD39C20022E88253D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocketExtension.m; sourceTree = "<group>"; };
+		7A0BBFBCC3D5C73920A0EFFF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -525,6 +547,9 @@
 				506EDB88102F4C4000A389B3 /* libz.dylib in Frameworks */,
 				506EDBA5102F4C9F00A389B3 /* AVFoundation.framework in Frameworks */,
 				506EE1A91030508200A389B3 /* libcocos2d libraries.a in Frameworks */,
+				7A0BB1AEF1B8D09E4CF81647 /* libicucore.dylib in Frameworks */,
+				7A0BBFDD01D1BBA50F393D06 /* CFNetwork.framework in Frameworks */,
+				7A0BB42D00FD2BCE4B975D70 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +570,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13D625851719B68700744746 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				13D625861719B68700744746 /* base64.c */,
+				13D625871719B68700744746 /* base64.h */,
+				13D625881719B68700744746 /* NSData+SRB64Additions.h */,
+				13D625891719B68700744746 /* NSData+SRB64Additions.m */,
+				13D6258A1719B68700744746 /* SocketRocket-Prefix.pch */,
+				13D6258B1719B68700744746 /* SRWebSocket.h */,
+				13D6258C1719B68700744746 /* SRWebSocket.m */,
+			);
+			name = SocketRocket;
+			path = libs/SocketRocket;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +628,9 @@
 				DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */,
 				506EDB87102F4C4000A389B3 /* libz.dylib */,
 				506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */,
+				7A0BB130BFD837F56B2C3252 /* libicucore.dylib */,
+				7A0BBD9CD39C20022E88253D /* CFNetwork.framework */,
+				7A0BBFBCC3D5C73920A0EFFF /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -602,6 +645,7 @@
 				E0F80F5F120A0182005866B8 /* RootViewController.m */,
 				1F3B9A2C0EF2145700286867 /* DragDropAppDelegate.h */,
 				1F3B9A2B0EF2145700286867 /* DragDropAppDelegate.m */,
+				7A0BBC2C75186938A43D5051 /* Communication */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -623,6 +667,7 @@
 		506EDAA3102F461B00A389B3 /* cocos2d Sources */ = {
 			isa = PBXGroup;
 			children = (
+				13D625851719B68700744746 /* SocketRocket */,
 				E0504E6C122D44A2005B74CB /* cocos2d */,
 				507ED63211C638C6002ED3FC /* CocosDenshion */,
 				504DFBC710AF12E9006D82FE /* cocoslive */,
@@ -747,6 +792,17 @@
 				5D8BDD8617199964007D4410 /* Tank_P2.png */,
 			);
 			path = Units;
+			sourceTree = "<group>";
+		};
+		7A0BBC2C75186938A43D5051 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */,
+				7A0BB9FE28FAAB6590538893 /* WebSocketDelegate.h */,
+				7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */,
+				7A0BB7072053EFAECF67AA04 /* SRWebSocketExtension.h */,
+			);
+			path = Communication;
 			sourceTree = "<group>";
 		};
 		E0504E6C122D44A2005B74CB /* cocos2d */ = {
@@ -1160,6 +1216,11 @@
 				1F3B9A2D0EF2145700286867 /* DragDropAppDelegate.m in Sources */,
 				506EDC31102F528A00A389B3 /* HelloWorldScene.m in Sources */,
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
+				13D6258D1719B68700744746 /* base64.c in Sources */,
+				13D6258E1719B68700744746 /* NSData+SRB64Additions.m in Sources */,
+				13D6258F1719B68700744746 /* SRWebSocket.m in Sources */,
+				7A0BBE345789E956894ADE1E /* WebSocketDelegate.m in Sources */,
+				7A0BB888045A3246C88012FE /* SRWebSocketExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1311,7 +1372,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -1364,13 +1425,14 @@
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1385,12 +1447,14 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
 				GCC_UNROLL_LOOPS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

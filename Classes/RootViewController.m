@@ -9,8 +9,14 @@
 
 #import "RootViewController.h"
 #import "GameConfig.h"
+#import "SRWebSocket.h"
+#import "SRWebSocketExtension.h"
+#import "WebSocketDelegate.h"
 
-@implementation RootViewController
+
+@implementation RootViewController {
+    SRWebSocket *_webSocket;
+}
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -38,22 +44,22 @@
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	
-	//
-	// There are 2 ways to support auto-rotation:
-	//  - The OpenGL / cocos2d way
-	//     - Faster, but doesn't rotate the UIKit objects
-	//  - The ViewController way
-	//    - A bit slower, but the UiKit objects are placed in the right place
-	//
-	
-#if GAME_AUTOROTATION==kGameAutorotationNone
+
+    //
+    // There are 2 ways to support auto-rotation:
+    //  - The OpenGL / cocos2d way
+    //     - Faster, but doesn't rotate the UIKit objects
+    //  - The ViewController way
+    //    - A bit slower, but the UiKit objects are placed in the right place
+    //
+
+#if GAME_AUTOROTATION == kGameAutorotationNone
 	//
 	// EAGLView won't be autorotated
 	//
 	return NO;
 	
-#elif GAME_AUTOROTATION==kGameAutorotationCCDirector
+#elif GAME_AUTOROTATION == kGameAutorotationCCDirector
 	//
 	// EAGLView will be rotated by cocos2d
 	//
@@ -68,66 +74,90 @@
 	return NO;
 
 #elif GAME_AUTOROTATION == kGameAutorotationUIViewController
-	//
-	// EAGLView will be rotated by the UIViewController
-	//
-	// Sample: Autorotate only in landscpe mode
-	//
-	// return YES for the supported orientations
-	if( interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-	   interfaceOrientation == UIInterfaceOrientationLandscapeRight )
-		return YES;
-	
-	// Unsupported orientations:
-	// UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown
-	return NO;
-	
+    //
+    // EAGLView will be rotated by the UIViewController
+    //
+    // Sample: Autorotate only in landscpe mode
+    //
+    // return YES for the supported orientations
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+            interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+        return YES;
+
+    // Unsupported orientations:
+    // UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown
+    return NO;
+
 #else
 #error Unknown value in GAME_AUTOROTATION
 	
 #endif // GAME_AUTOROTATION
 
-	
-	// Shold not happen
-	return NO;
+
+    // Shold not happen
+    return NO;
 }
 
 //
 // This callback only will be called when GAME_AUTOROTATION == kGameAutorotationUIViewController
 //
 #if GAME_AUTOROTATION == kGameAutorotationUIViewController
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	//
-	// Assuming that the main window has the size of the screen
-	// BUG: This won't work if the EAGLView is not fullscreen
-	///
-	CGRect screenRect = [[UIScreen mainScreen] bounds];
-	CGRect rect;
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    //
+    // Assuming that the main window has the size of the screen
+    // BUG: This won't work if the EAGLView is not fullscreen
+    ///
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGRect rect;
 
-	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)		
-		rect = screenRect;
-			
-	else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
-		rect.size = CGSizeMake( screenRect.size.height, screenRect.size.width );
-	
-	CCDirector *director = [CCDirector sharedDirector];
-	EAGLView *glView = [director openGLView];
-	float contentScaleFactor = [director contentScaleFactor];
-	
-	if( contentScaleFactor != 1 ) {
-		rect.size.width *= contentScaleFactor;
-		rect.size.height *= contentScaleFactor;
-	}
-	glView.frame = rect;
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+        rect = screenRect;
+
+    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+        rect.size = CGSizeMake(screenRect.size.height, screenRect.size.width);
+
+    CCDirector *director = [CCDirector sharedDirector];
+    EAGLView *glView = [director openGLView];
+    float contentScaleFactor = [director contentScaleFactor];
+
+    if (contentScaleFactor != 1) {
+        rect.size.width *= contentScaleFactor;
+        rect.size.height *= contentScaleFactor;
+    }
+    glView.frame = rect;
 }
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController
 
 
+- (void)_reconnect; {
+    _webSocket.delegate = nil;
+    [_webSocket close];
+
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://192.168.1.96:3000/websocket"]]];
+    _webSocket.delegate = [[WebSocketDelegate alloc] initWithSocket:_webSocket];
+
+    self.title = @"Opening Connection...";
+    [_webSocket open];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self _reconnect];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+    _webSocket.delegate = nil;
+    [_webSocket close];
+    _webSocket = nil;
+}
+
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -141,6 +171,5 @@
 - (void)dealloc {
     [super dealloc];
 }
-
 
 @end

@@ -6,9 +6,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class SRWebSocket;
 
-@interface RootViewController : UIViewController {
 
-}
+@interface RootViewController : UIViewController
 
 @end
