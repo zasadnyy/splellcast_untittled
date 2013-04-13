@@ -9,13 +9,11 @@
 
 #import "RootViewController.h"
 #import "GameConfig.h"
-#import "SRWebSocket.h"
-#import "SRWebSocketExtension.h"
-#import "WebSocketDelegate.h"
+#import "CommunicationManager.h"
 
 
 @implementation RootViewController {
-    SRWebSocket *_webSocket;
+    CommunicationManager *_communicationManager;
 }
 
 /*
@@ -34,12 +32,7 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
+
 
 
 // Override to allow orientations other than the default portrait orientation.
@@ -129,29 +122,22 @@
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController
 
 
-- (void)_reconnect; {
-    _webSocket.delegate = nil;
-    [_webSocket close];
-
-    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://192.168.1.96:3000/websocket"]]];
-    _webSocket.delegate = [[WebSocketDelegate alloc] initWithSocket:_webSocket];
-
-    self.title = @"Opening Connection...";
-    [_webSocket open];
-
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+//    _communicationManager =  [[CommunicationManager alloc]init];
 }
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self _reconnect];
+    _communicationManager = [[CommunicationManager alloc] init];
+    [_communicationManager startGame];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-
-    _webSocket.delegate = nil;
-    [_webSocket close];
-    _webSocket = nil;
+    [_communicationManager killGame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -169,6 +155,7 @@
 
 
 - (void)dealloc {
+    [_communicationManager release];
     [super dealloc];
 }
 

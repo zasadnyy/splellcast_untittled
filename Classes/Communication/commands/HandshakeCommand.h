@@ -6,16 +6,13 @@
 
 
 #import <Foundation/Foundation.h>
-#import "SRWebSocket.h"
+#import "BaseCommand.h"
 
-@class CommandProcessor;
 @class SessionInfo;
 
 
-@interface WebSocketDelegate : NSObject <SRWebSocketDelegate> {
+@interface HandshakeCommand : BaseCommand
 
-}
-
-- (id)initWithSocket:(SRWebSocket *)webSocket;
+- (id)init;
 
 @end

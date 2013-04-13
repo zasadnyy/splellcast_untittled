@@ -90,10 +90,22 @@
 		5D8BDD9817199964007D4410 /* Tank_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8417199964007D4410 /* Tank_P1.png */; };
 		5D8BDD9917199964007D4410 /* Tank_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8517199964007D4410 /* Tank_P2-hd.png */; };
 		5D8BDD9A17199964007D4410 /* Tank_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8617199964007D4410 /* Tank_P2.png */; };
+		7A0BB0AEDCF3130029C48B06 /* CommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB280B3943EA7B3D57629 /* CommunicationManager.m */; };
 		7A0BB1AEF1B8D09E4CF81647 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BB130BFD837F56B2C3252 /* libicucore.dylib */; };
 		7A0BB42D00FD2BCE4B975D70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBFBCC3D5C73920A0EFFF /* Security.framework */; };
+		7A0BB4A48D985D65E51FBD7B /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB4632B30661AC5DC3CD6 /* Order.m */; };
+		7A0BB4E9B69287940800ADCF /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB36056A75538E059F2F8 /* NotificationHelper.m */; };
+		7A0BB5A99BF393A208FBAF89 /* AddPlayerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB7AB36F029D2D5976472 /* AddPlayerRequest.m */; };
+		7A0BB769B6D1CEC87E18708D /* SessionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB5D5B84A4B9D063D844C /* SessionInfo.m */; };
+		7A0BB772B2B10E3A59D5129A /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB393740A533AF14CD98A /* BaseRequest.m */; };
 		7A0BB888045A3246C88012FE /* SRWebSocketExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */; };
+		7A0BB89AD9B2883AC6FBDCEC /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB2742F56B822528C32CE /* World.m */; };
+		7A0BB8C46C7F9E355536C0FF /* GameStartCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBC6B413902CC10949EDE /* GameStartCommand.m */; };
+		7A0BB9268AAF326D6227708F /* HandshakeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBD9074159844AD727754 /* HandshakeCommand.m */; };
+		7A0BBC759740F8DDA7E227DB /* CommandData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB306FEA5CAD03E1A5263 /* CommandData.m */; };
+		7A0BBE0D428F0B5F12D781A4 /* CommandProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB84FA011EAE398C44341 /* CommandProcessor.m */; };
 		7A0BBE345789E956894ADE1E /* WebSocketDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */; };
+		7A0BBF84EF88E709A9B811A3 /* BaseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBB98FACBA4C2A664A42D /* BaseCommand.m */; };
 		7A0BBFDD01D1BBA50F393D06 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBD9CD39C20022E88253D /* CFNetwork.framework */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
@@ -357,11 +369,35 @@
 		5D8BDD8417199964007D4410 /* Tank_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P1.png; sourceTree = "<group>"; };
 		5D8BDD8517199964007D4410 /* Tank_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank_P2-hd.png"; sourceTree = "<group>"; };
 		5D8BDD8617199964007D4410 /* Tank_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P2.png; sourceTree = "<group>"; };
+		7A0BB00D32144E43F134084E /* CommandProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandProcessor.h; sourceTree = "<group>"; };
 		7A0BB130BFD837F56B2C3252 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		7A0BB13B7FE0730E90CE4917 /* HandshakeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandshakeCommand.h; sourceTree = "<group>"; };
+		7A0BB2059451BDE8F19E59DF /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
+		7A0BB2742F56B822528C32CE /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		7A0BB280B3943EA7B3D57629 /* CommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationManager.m; sourceTree = "<group>"; };
+		7A0BB2DB54A6422334BA0E5D /* CommandData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandData.h; sourceTree = "<group>"; };
+		7A0BB306FEA5CAD03E1A5263 /* CommandData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandData.m; sourceTree = "<group>"; };
+		7A0BB36056A75538E059F2F8 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
+		7A0BB393740A533AF14CD98A /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		7A0BB4632B30661AC5DC3CD6 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		7A0BB4E70E01394A0D6C7BEA /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		7A0BB50A11C2B73AFDB667D8 /* SessionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionInfo.h; sourceTree = "<group>"; };
+		7A0BB5D5B84A4B9D063D844C /* SessionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionInfo.m; sourceTree = "<group>"; };
+		7A0BB653990255F2045A89D2 /* GameStartCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartCommand.h; sourceTree = "<group>"; };
 		7A0BB7072053EFAECF67AA04 /* SRWebSocketExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocketExtension.h; sourceTree = "<group>"; };
+		7A0BB7AB36F029D2D5976472 /* AddPlayerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayerRequest.m; sourceTree = "<group>"; };
+		7A0BB8199159A7D19B437B40 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		7A0BB84FA011EAE398C44341 /* CommandProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandProcessor.m; sourceTree = "<group>"; };
 		7A0BB9FE28FAAB6590538893 /* WebSocketDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketDelegate.h; sourceTree = "<group>"; };
+		7A0BBB615F14B70A6B4FB328 /* CommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationManager.h; sourceTree = "<group>"; };
+		7A0BBB98FACBA4C2A664A42D /* BaseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCommand.m; sourceTree = "<group>"; };
+		7A0BBC6B413902CC10949EDE /* GameStartCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStartCommand.m; sourceTree = "<group>"; };
+		7A0BBC7977CA84293AD49201 /* BaseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCommand.h; sourceTree = "<group>"; };
 		7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketDelegate.m; sourceTree = "<group>"; };
+		7A0BBD9074159844AD727754 /* HandshakeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandshakeCommand.m; sourceTree = "<group>"; };
 		7A0BBD9CD39C20022E88253D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7A0BBDD91035D9F9CA2ED2BB /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		7A0BBF24EC9D0E542933821E /* AddPlayerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayerRequest.h; sourceTree = "<group>"; };
 		7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocketExtension.m; sourceTree = "<group>"; };
 		7A0BBFBCC3D5C73920A0EFFF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -646,6 +682,9 @@
 				1F3B9A2C0EF2145700286867 /* DragDropAppDelegate.h */,
 				1F3B9A2B0EF2145700286867 /* DragDropAppDelegate.m */,
 				7A0BBC2C75186938A43D5051 /* Communication */,
+				7A0BBD046C0A96CE59C23269 /* Models */,
+				7A0BBCBEF4E3C3490388344B /* Helpers */,
+				7A0BB367E94D2D348DF248C4 /* Engine */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -794,6 +833,37 @@
 			path = Units;
 			sourceTree = "<group>";
 		};
+		7A0BB367E94D2D348DF248C4 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		7A0BB652AF6264046E584DA2 /* commands */ = {
+			isa = PBXGroup;
+			children = (
+				7A0BBB98FACBA4C2A664A42D /* BaseCommand.m */,
+				7A0BBC7977CA84293AD49201 /* BaseCommand.h */,
+				7A0BBD9074159844AD727754 /* HandshakeCommand.m */,
+				7A0BB13B7FE0730E90CE4917 /* HandshakeCommand.h */,
+				7A0BBC6B413902CC10949EDE /* GameStartCommand.m */,
+				7A0BB653990255F2045A89D2 /* GameStartCommand.h */,
+			);
+			path = commands;
+			sourceTree = "<group>";
+		};
+		7A0BB78465392ED0E0660334 /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				7A0BB7AB36F029D2D5976472 /* AddPlayerRequest.m */,
+				7A0BBF24EC9D0E542933821E /* AddPlayerRequest.h */,
+				7A0BB393740A533AF14CD98A /* BaseRequest.m */,
+				7A0BB8199159A7D19B437B40 /* BaseRequest.h */,
+			);
+			path = requests;
+			sourceTree = "<group>";
+		};
 		7A0BBC2C75186938A43D5051 /* Communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,8 +871,38 @@
 				7A0BB9FE28FAAB6590538893 /* WebSocketDelegate.h */,
 				7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */,
 				7A0BB7072053EFAECF67AA04 /* SRWebSocketExtension.h */,
+				7A0BB84FA011EAE398C44341 /* CommandProcessor.m */,
+				7A0BB00D32144E43F134084E /* CommandProcessor.h */,
+				7A0BB652AF6264046E584DA2 /* commands */,
+				7A0BB306FEA5CAD03E1A5263 /* CommandData.m */,
+				7A0BB2DB54A6422334BA0E5D /* CommandData.h */,
+				7A0BB5D5B84A4B9D063D844C /* SessionInfo.m */,
+				7A0BB50A11C2B73AFDB667D8 /* SessionInfo.h */,
+				7A0BB78465392ED0E0660334 /* requests */,
+				7A0BB280B3943EA7B3D57629 /* CommunicationManager.m */,
+				7A0BBB615F14B70A6B4FB328 /* CommunicationManager.h */,
+				7A0BB36056A75538E059F2F8 /* NotificationHelper.m */,
+				7A0BB2059451BDE8F19E59DF /* NotificationHelper.h */,
 			);
 			path = Communication;
+			sourceTree = "<group>";
+		};
+		7A0BBCBEF4E3C3490388344B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7A0BBD046C0A96CE59C23269 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A0BB2742F56B822528C32CE /* World.m */,
+				7A0BBDD91035D9F9CA2ED2BB /* World.h */,
+				7A0BB4632B30661AC5DC3CD6 /* Order.m */,
+				7A0BB4E70E01394A0D6C7BEA /* Order.h */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E0504E6C122D44A2005B74CB /* cocos2d */ = {
@@ -1221,6 +1321,18 @@
 				13D6258F1719B68700744746 /* SRWebSocket.m in Sources */,
 				7A0BBE345789E956894ADE1E /* WebSocketDelegate.m in Sources */,
 				7A0BB888045A3246C88012FE /* SRWebSocketExtension.m in Sources */,
+				7A0BBE0D428F0B5F12D781A4 /* CommandProcessor.m in Sources */,
+				7A0BBF84EF88E709A9B811A3 /* BaseCommand.m in Sources */,
+				7A0BBC759740F8DDA7E227DB /* CommandData.m in Sources */,
+				7A0BB9268AAF326D6227708F /* HandshakeCommand.m in Sources */,
+				7A0BB769B6D1CEC87E18708D /* SessionInfo.m in Sources */,
+				7A0BB5A99BF393A208FBAF89 /* AddPlayerRequest.m in Sources */,
+				7A0BB772B2B10E3A59D5129A /* BaseRequest.m in Sources */,
+				7A0BB0AEDCF3130029C48B06 /* CommunicationManager.m in Sources */,
+				7A0BB4E9B69287940800ADCF /* NotificationHelper.m in Sources */,
+				7A0BB8C46C7F9E355536C0FF /* GameStartCommand.m in Sources */,
+				7A0BB89AD9B2883AC6FBDCEC /* World.m in Sources */,
+				7A0BB4A48D985D65E51FBD7B /* Order.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
