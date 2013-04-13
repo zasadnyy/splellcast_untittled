@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "District.h"
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -46,6 +47,9 @@
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
+
+        District *dst = [District new];
+        [self addChild:dst];
 	}
 	return self;
 }

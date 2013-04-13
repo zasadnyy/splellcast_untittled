@@ -216,6 +216,11 @@
 		DC0881F015BDA9820044A820 /* ZAttributedStringPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = DC08811C15BDA9820044A820 /* ZAttributedStringPrivate.h */; };
 		DC0881F115BDA9820044A820 /* ZFont.h in Headers */ = {isa = PBXBuildFile; fileRef = DC08811D15BDA9820044A820 /* ZFont.h */; };
 		DC0881F215BDA9820044A820 /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = DC08811E15BDA9820044A820 /* ZFont.m */; };
+		E1ED02F203A62F954393D375 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ED040E8F2035A702E24594 /* District.m */; };
+		E1ED037EB31462837A7B1742 /* 1-0-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E1ED064088EB826875EE7747 /* 1-0-ipad.png */; };
+		E1ED09920D3A7E2DDC8CFA1A /* 0-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E1ED00348557000D29181EC8 /* 0-1-ipad.png */; };
+		E1ED0A0C3524F364123DFED5 /* 1-1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E1ED04C65CD6C92727AAC8DC /* 1-1-ipad.png */; };
+		E1ED0D67BBDA86BEAA977F78 /* 0-0-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E1ED0DAEC42B7C93DD8E91BA /* 0-0-ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -438,6 +443,12 @@
 		DC08812015BDA9820044A820 /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
 		DC08812115BDA9820044A820 /* LICENSE_FontLabel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_FontLabel.txt; sourceTree = "<group>"; };
 		DC08812215BDA9820044A820 /* LICENSE_TouchJSON.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_TouchJSON.txt; sourceTree = "<group>"; };
+		E1ED00348557000D29181EC8 /* 0-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-1-ipad.png"; sourceTree = "<group>"; };
+		E1ED040E8F2035A702E24594 /* District.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = District.m; sourceTree = "<group>"; };
+		E1ED04C65CD6C92727AAC8DC /* 1-1-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-1-ipad.png"; sourceTree = "<group>"; };
+		E1ED04F29644182679F8D82F /* District.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = District.h; sourceTree = "<group>"; };
+		E1ED064088EB826875EE7747 /* 1-0-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0-ipad.png"; sourceTree = "<group>"; };
+		E1ED0DAEC42B7C93DD8E91BA /* 0-0-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-0-ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +525,8 @@
 				DC08805615BDA9820044A820 /* libs */,
 				DC087EE315BDA9470044A820 /* Resources */,
 				DC08803315BDA94A0044A820 /* Supporting Files */,
+				E1ED040E8F2035A702E24594 /* District.m */,
+				E1ED04F29644182679F8D82F /* District.h */,
 			);
 			path = "cocos2d-1.x-ARC-iOS";
 			sourceTree = "<group>";
@@ -531,6 +544,7 @@
 				DC087EF215BDA9470044A820 /* Icon@2x.png */,
 				DC087EF415BDA9470044A820 /* Info.plist */,
 				DC087EF515BDA9470044A820 /* iTunesArtwork */,
+				E1ED0E55296ACFCCB1C89D3D /* Art */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -797,6 +811,17 @@
 			path = FontLabel;
 			sourceTree = "<group>";
 		};
+		E1ED0E55296ACFCCB1C89D3D /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				E1ED04C65CD6C92727AAC8DC /* 1-1-ipad.png */,
+				E1ED064088EB826875EE7747 /* 1-0-ipad.png */,
+				E1ED00348557000D29181EC8 /* 0-1-ipad.png */,
+				E1ED0DAEC42B7C93DD8E91BA /* 0-0-ipad.png */,
+			);
+			name = Art;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -984,6 +1009,10 @@
 				DC087EF115BDA9470044A820 /* Icon.png in Resources */,
 				DC087EF315BDA9470044A820 /* Icon@2x.png in Resources */,
 				DC087EF615BDA9470044A820 /* iTunesArtwork in Resources */,
+				E1ED0A0C3524F364123DFED5 /* 1-1-ipad.png in Resources */,
+				E1ED037EB31462837A7B1742 /* 1-0-ipad.png in Resources */,
+				E1ED09920D3A7E2DDC8CFA1A /* 0-1-ipad.png in Resources */,
+				E1ED0D67BBDA86BEAA977F78 /* 0-0-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,6 +1027,7 @@
 				DC08803915BDA94A0044A820 /* AppDelegate.m in Sources */,
 				DC08803C15BDA94A0044A820 /* RootViewController.m in Sources */,
 				DC08803F15BDA94A0044A820 /* HelloWorldLayer.m in Sources */,
+				E1ED02F203A62F954393D375 /* District.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
