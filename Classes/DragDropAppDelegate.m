@@ -10,6 +10,7 @@
 #import "GameConfig.h"
 #import "HelloWorldScene.h"
 #import "RootViewController.h"
+#import "MenuScene.h"
 
 @implementation DragDropAppDelegate
 
@@ -22,7 +23,7 @@
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director
-	if( ! [CCDirector setDirectorType:kCCDirectorTypeDisplayLink] )
+	if(![CCDirector setDirectorType:kCCDirectorTypeDisplayLink] )
 		[CCDirector setDirectorType:kCCDirectorTypeDefault];
 	
 	
@@ -79,14 +80,10 @@
 	
 	
 	// Run the intro Scene
-    CCScene *scene = [HelloWorld scene];
-    HelloWorld *layer = (HelloWorld *) [scene.children objectAtIndex:0];
-    UIPanGestureRecognizer *gestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:layer action:@selector(handlePanFrom:)] autorelease];
-    [viewController.view addGestureRecognizer:gestureRecognizer];
+    CCScene *menu = [MenuScene scene];
+    [[CCDirector sharedDirector] runWithScene:menu];
 
-    [[CCDirector sharedDirector] runWithScene:scene];	
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] pause];

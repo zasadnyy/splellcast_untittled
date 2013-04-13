@@ -13,7 +13,7 @@
 {
     CCSprite * background;
     CCSprite * selSprite;
-    NSMutableArray * movableSprites;
+    NSMutableArray * movableUnits;
 }
 
 // returns a Scene that contains the HelloWorld as the only child
