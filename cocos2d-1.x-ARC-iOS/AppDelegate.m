@@ -90,6 +90,9 @@
 	
 	[director setAnimationInterval:1.0/60];
 	[director setDisplayFPS:YES];
+
+    [CCFileUtils setiPadSuffix:@""];
+    [CCFileUtils setiPadRetinaDisplaySuffix:@"-hd"];
 	
 	
 	// make the OpenGLView a child of the view controller
