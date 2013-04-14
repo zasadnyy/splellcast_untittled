@@ -16,17 +16,16 @@ CCSprite *cocosGuy;
 
 @implementation MenuScene
 
-+(id) scene
-{
-	CCScene *scene = [CCScene node];
++ (id)scene {
+    CCScene *scene = [CCScene node];
+
+    MenuScene *layer = [MenuScene node];
+
+    [scene addChild:layer];
     
-	MenuScene *layer = [MenuScene node];
-    
-	[scene addChild: layer];
-    
-//    [[SimpleAudioEngine sharedEngine] playEffect:@"title.mp3"];
-    
-	return scene;
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3"];
+
+    return scene;
 }
 
 - (void)runGame {
@@ -36,17 +35,19 @@ CCSprite *cocosGuy;
 
 - (void)doSomethingOne:(CCMenuItem *)menuItem {
     NSLog(@"The first menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     [self runGame];
-
 }
 
 - (void)doSomethingTwo:(CCMenuItem *)menuItem {
     NSLog(@"The second menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     [self runGame];
 }
 
 - (void)doSomethingThree:(CCMenuItem *)menuItem {
     NSLog(@"The third menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     [self runGame];
 }
 

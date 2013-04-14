@@ -11,6 +11,7 @@
 #import "OrderObj.h"
 #import "MapNode.h"
 #import "MapData.h"
+#include "SimpleAudioEngine.h" 
 
 
 @implementation HelloWorld {
@@ -30,6 +31,8 @@
 
     InputLayer *inputLayer = [InputLayer node];
     [scene addChild:inputLayer z:1];
+    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3"];
 
 //    UITapGestureRecognizer *gestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:scene action:@selector(handlePanFrom:)] autorelease];
 //     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
@@ -107,18 +110,9 @@
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
     [self addChild:sprite];
+    [locations addObject:sprite];
 }
 
-- (void)setUnits:(NSDictionary *)units {
-    for (id unit in [units allKeys]) {
-        if ([unit isKindOfClass:[NSString class]]) {
-            CCSprite *sprite = [CCSprite spriteWithFile:(NSString *) unit];
-            sprite.position = [[units objectForKey:unit] CGPointValue];
-            [self addChild:sprite];
-            [movableUnits addObject:sprite];
-        }
-    }
-}
 
 - (void)makepinch:(UIPinchGestureRecognizer *)pinch {
 //    if(pinch.state == UIGestureRecognizerStateEnded)
@@ -138,16 +132,17 @@
 
 
 - (void)dealloc {
-    [movableUnits release];
-    movableUnits = nil;
+    [locations release];
+    locations = nil;
     [super dealloc];
 }
 
 - (void)selectSpriteForTouch:(CGPoint)touchLocation {
     CCSprite *newSprite = nil;
-    for (CCSprite *sprite in movableUnits) {
+    for (CCSprite *sprite in locations) {
         if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
             newSprite = sprite;
+             NSLog(@"TOUCH");
             break;
         }
     }
