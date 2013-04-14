@@ -1488,6 +1488,12 @@
 				7A0BBF7DFAC8A4488C46FE3D /* none_no_castle.png in Resources */,
 				7A0BB05DB302CEBB2B54D57C /* none_small_castle.png in Resources */,
 				7A0BB5653CA6B87AD1F28AEB /* owl_no_castle.png in Resources */,
+<<<<<<< HEAD
+				7A0BBDD36652EC0270122462 /* bunny_footer.png in Resources */,
+				7A0BB6CF03B291F45E7E1156 /* bunny_knight.png in Resources */,
+				7A0BB65495B2BE832063DAB2 /* owl_footer.png in Resources */,
+				7A0BB0D6D387A4603B3CF99C /* owl_knight.png in Resources */,
+=======
 				5D99A0F4171AACF60082815B /* game.mp3 in Resources */,
 				5D99A0F6171AB2610082815B /* menu.mp3 in Resources */,
 				5D99A108171AB90A0082815B /* bunnies_disorder.mp3 in Resources */,
@@ -1495,10 +1501,7 @@
 				5D99A10A171AB90A0082815B /* click.mp3 in Resources */,
 				5D99A10B171AB90A0082815B /* owls_disorder.mp3 in Resources */,
 				5D99A10C171AB90A0082815B /* owls_order.mp3 in Resources */,
-				7A0BBDD36652EC0270122462 /* bunny_footer.png in Resources */,
-				7A0BB6CF03B291F45E7E1156 /* bunny_knight.png in Resources */,
-				7A0BB65495B2BE832063DAB2 /* owl_footer.png in Resources */,
-				7A0BB0D6D387A4603B3CF99C /* owl_knight.png in Resources */,
+>>>>>>> 872f57e281243c635f0fe97a09f79c8003075804
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

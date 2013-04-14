@@ -18,7 +18,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _nodes = [self registerNodes];
+        self.nodes = [self registerNodes];
     }
     return self;
 }

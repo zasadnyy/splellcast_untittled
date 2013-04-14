@@ -8,16 +8,21 @@
 
 @class MapData;
 
-@interface HelloWorld : CCLayer
-{
-    CCSprite * background;
-    CCSprite * selSprite;
-    NSMutableArray * locations;
+@interface HelloWorld : CCLayer {
+    CCSprite *background;
+    CCSprite *selSprite;
+    NSMutableArray *locations;
 }
 
 @property(strong, nonatomic) MapData *mapData;
 
-+(id) scene;
--(void)makepinch:(UIPinchGestureRecognizer*)pinch;
+@property(strong, nonatomic) NSDictionary *ownerMapping;
+@property(strong, nonatomic) NSDictionary *nodeTypeSpriteMappingOwl;
+@property(strong, nonatomic) NSDictionary *nodeTypeSpriteMappingBunnies;
+@property(strong, nonatomic) NSDictionary *nodeTypeSpriteMappingNone;
+
++ (id)scene;
+
+- (void)makepinch:(UIPinchGestureRecognizer *)pinch;
 
 @end
