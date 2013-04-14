@@ -9,8 +9,12 @@
 
 @class MapData;
 
-
-@interface InputLayer : CCLayer {
+@interface InputLayer : CCLayer 
+{
+    CCSprite * selSprite;
 }
+
+@property (nonatomic, strong) NSMutableDictionary * buttons;
+-(void) setInitialPositions;
 
 @end

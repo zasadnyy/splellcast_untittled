@@ -8,6 +8,8 @@
 
 #import "MenuScene.h"
 #import "HelloWorldScene.h"
+#import "DragDropAppDelegate.h"
+#include "SimpleAudioEngine.h" 
 
 CCSprite *seeker1;
 CCSprite *cocosGuy;
@@ -20,6 +22,8 @@ CCSprite *cocosGuy;
     MenuScene *layer = [MenuScene node];
 
     [scene addChild:layer];
+    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3"];
 
     return scene;
 }
@@ -31,17 +35,19 @@ CCSprite *cocosGuy;
 
 - (void)doSomethingOne:(CCMenuItem *)menuItem {
     NSLog(@"The first menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     [self runGame];
-
 }
 
 - (void)doSomethingTwo:(CCMenuItem *)menuItem {
     NSLog(@"The second menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     [self runGame];
 }
 
 - (void)doSomethingThree:(CCMenuItem *)menuItem {
     NSLog(@"The third menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     [self runGame];
 }
 

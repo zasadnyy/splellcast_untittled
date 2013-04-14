@@ -17,6 +17,7 @@
 #import "NodeArmyCrew.h"
 #import "RandomHelper.h"
 #import "CommunicationManager.h"
+#include "SimpleAudioEngine.h" 
 
 
 @implementation HelloWorld {
@@ -39,7 +40,11 @@
 
     InputLayer *inputLayer = [InputLayer node];
     [scene addChild:inputLayer z:1];
+    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3"];
 
+//    UITapGestureRecognizer *gestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:scene action:@selector(handlePanFrom:)] autorelease];
+//     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
     return scene;
 }
 
@@ -53,20 +58,20 @@
         [self addChild:background];
         [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
 
-        movableUnits = [[NSMutableArray alloc] init];
-        NSArray *units = [NSArray arrayWithObjects:
-                @"Soldier_P1.png", @"Tank_P1.png",
-                @"HQ_P1.png", @"Cannon_P1.png",
-                @"Soldier_P1.png", @"Tank_P1.png",
-                @"HQ_P1.png", @"Cannon_P1.png", nil];
-        for (int i = 0; i < units.count; ++i) {
-            NSString *image = [units objectAtIndex:i];
-            CCSprite *sprite = [CCSprite spriteWithFile:image];
-            float offsetFraction = ((float) (i + 10)) / (units.count + 1);
-            sprite.position = ccp(winSize.width * offsetFraction, winSize.height / 2);
-            [self addChild:sprite];
-            [movableUnits addObject:sprite];
-        }
+//        movableUnits = [[NSMutableArray alloc] init];
+//        NSArray *units = [NSArray arrayWithObjects:
+//                @"Soldier_P1.png", @"Tank_P1.png",
+//                @"HQ_P1.png", @"Cannon_P1.png",
+//                @"Soldier_P1.png", @"Tank_P1.png",
+//                @"HQ_P1.png", @"Cannon_P1.png", nil];
+//        for (int i = 0; i < units.count; ++i) {
+//            NSString *image = [units objectAtIndex:i];
+//            CCSprite *sprite = [CCSprite spriteWithFile:image];
+//            float offsetFraction = ((float) (i + 10)) / (units.count + 1);
+//            sprite.position = ccp(winSize.width * offsetFraction, winSize.height / 2);
+//            [self addChild:sprite];
+//            [movableUnits addObject:sprite];
+//        }
 
         [self initMappings];
         _mapData = [[[MapData alloc] init] autorelease];
@@ -119,6 +124,7 @@
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
     [self addChild:sprite];
+    [locations addObject:sprite];
 
     [self drawArmy:node];
 }
@@ -181,16 +187,17 @@
 
 
 - (void)dealloc {
-    [movableUnits release];
-    movableUnits = nil;
+    [locations release];
+    locations = nil;
     [super dealloc];
 }
 
 - (void)selectSpriteForTouch:(CGPoint)touchLocation {
     CCSprite *newSprite = nil;
-    for (CCSprite *sprite in movableUnits) {
+    for (CCSprite *sprite in locations) {
         if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
             newSprite = sprite;
+             NSLog(@"TOUCH");
             break;
         }
     }

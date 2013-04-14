@@ -12,7 +12,7 @@
 {
     CCSprite * background;
     CCSprite * selSprite;
-    NSMutableArray * movableUnits;
+    NSMutableArray * locations;
 }
 
 @property(strong, nonatomic) MapData *mapData;
