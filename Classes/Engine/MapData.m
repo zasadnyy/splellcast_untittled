@@ -29,7 +29,7 @@
     [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:1] nodeType:NODE_TYPE_CAPITAL neigborhoods:@[@2, @3] coordinate:CGPointMake(670, 410) owner:NODE_OWNER_OWLS]];
     [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:2] nodeType:NODE_TYPE_SMALL_CASTLE neigborhoods:@[@1, @3, @4, @5] coordinate:CGPointMake(1022, 410) owner:NODE_OWNER_OWLS]];
     [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:3] nodeType:NODE_TYPE_NO_CASTLE neigborhoods:@[@1, @2, @7] coordinate:CGPointMake(330, 700) owner:NODE_OWNER_OWLS]];
-    [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:4] nodeType:NODE_TYPE_CAPITAL neigborhoods:@[@2, @5, @8] coordinate:CGPointMake(500, 1096) owner:NODE_OWNER_NONE]];
+    [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:4] nodeType:NODE_TYPE_NO_CASTLE neigborhoods:@[@2, @5, @8] coordinate:CGPointMake(500, 1096) owner:NODE_OWNER_NONE]];
     [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:5] nodeType:NODE_TYPE_NO_CASTLE neigborhoods:@[@2, @4, @12, @6, @9] coordinate:CGPointMake(815, 845) owner:NODE_OWNER_NONE]];
     [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:6] nodeType:NODE_TYPE_SMALL_CASTLE neigborhoods:@[@5, @9, @13, @7] coordinate:CGPointMake(1253, 485) owner:NODE_OWNER_NONE]];
     [nodes addObject:[MapNode objectWithNodeId:[NSNumber numberWithInt:7] nodeType:NODE_TYPE_NO_CASTLE neigborhoods:@[@3, @6, @10] coordinate:CGPointMake(1537, 230) owner:NODE_OWNER_NONE]];

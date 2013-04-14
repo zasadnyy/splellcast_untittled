@@ -114,7 +114,11 @@ double findDistance(CGPoint point1, CGPoint point2) {
 
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
-    sprite.scale *= 1.25f;
+    if ([NODE_TYPE_NO_CASTLE isEqualToString:node.nodeType]) {
+        sprite.scale *= 0.75f;
+    } else {
+        sprite.scale *= 1.25f;
+    }
     [self addChild:sprite];
     [locations addObject:sprite];
 

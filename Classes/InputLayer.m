@@ -7,6 +7,7 @@
 #import "InputLayer.h"
 #import "MapData.h"
 #import "MapNode.h"
+#import "SimpleAudioEngine.h"
 
 void drawMapNode(id o);
 
@@ -64,37 +65,43 @@ void drawMapNode(id o);
 
 - (void)onCommit:(CCMenuItem *)menuItem {
     NSLog(@"The first menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
 }
 
 - (void)onAttack:(CCMenuItem *)menuItem {
     NSLog(@"The third menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
 }
 
 - (void)onDefence:(CCMenuItem *)menuItem {
     NSLog(@"The four menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
 }
 
 - (void)onSupport:(CCMenuItem *)menuItem {
     NSLog(@"The five menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
 }
 
 - (void)onBuild:(CCMenuItem *)menuItem {
     NSLog(@"The five menu was called");
+    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
 }
 
 - (void)addButtons {
     CGSize winSize = [CCDirector sharedDirector].winSize;
 
-    CCMenuItemImage *commit = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onCommit:)];
-    CCMenuItemImage *attack = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onAttack:)];
-    CCMenuItemImage *defence = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onDefence:)];
-    CCMenuItemImage *support = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onSupport:)];
-    CCMenuItemImage *build = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onBuild:)];
+    CCMenuItemImage *defence = [CCMenuItemImage itemFromNormalImage:@"order_defence.png" selectedImage:@"order_defence.png" target:self selector:@selector(onDefence:)];
+    CCMenuItemImage *support = [CCMenuItemImage itemFromNormalImage:@"order_support.png" selectedImage:@"order_support.png" target:self selector:@selector(onSupport:)];
+    CCMenuItemImage *attack = [CCMenuItemImage itemFromNormalImage:@"order_attack.png" selectedImage:@"order_attack.png" target:self selector:@selector(onAttack:)];
+    CCMenuItemImage *build = [CCMenuItemImage itemFromNormalImage:@"order_build.png" selectedImage:@"order_build.png" target:self selector:@selector(onBuild:)];
+    CCMenuItemImage *commit = [CCMenuItemImage itemFromNormalImage:@"order_rade.png" selectedImage:@"order_rade.png" target:self selector:@selector(onCommit:)];
 
     CCMenu *myMenu = [CCMenu menuWithItems:commit, attack, defence, support, build, nil];
     [myMenu alignItemsHorizontally];
     myMenu.anchorPoint = CGPointZero;
-    myMenu.position = ccp(winSize.width * 0.5, 32.0f);
+    myMenu.position = ccp(winSize.width * 0.5, 38.0f);
+    myMenu.scale = 0.5f;
 
     [self addChild:myMenu];
 }
