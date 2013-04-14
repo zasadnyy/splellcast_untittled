@@ -20,12 +20,13 @@
 #include "SimpleAudioEngine.h" 
 
 
+double findDistance(CGPoint point1, CGPoint point2) {
+    return sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+}
+
 @implementation HelloWorld {
     CommunicationManager *_communicationManager;
-
-//    NSDictionary *_nodeTypeSpriteMappingOwl;
-//    NSDictionary *_nodeTypeSpriteMappingBunnies;
-//    NSDictionary *_nodeTypeSpriteMappingNone;
+    CCSprite *_highlightCastle;
 }
 
 @synthesize mapData = _mapData;
@@ -58,20 +59,10 @@
         [self addChild:background];
         [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
 
-//        movableUnits = [[NSMutableArray alloc] init];
-//        NSArray *units = [NSArray arrayWithObjects:
-//                @"Soldier_P1.png", @"Tank_P1.png",
-//                @"HQ_P1.png", @"Cannon_P1.png",
-//                @"Soldier_P1.png", @"Tank_P1.png",
-//                @"HQ_P1.png", @"Cannon_P1.png", nil];
-//        for (int i = 0; i < units.count; ++i) {
-//            NSString *image = [units objectAtIndex:i];
-//            CCSprite *sprite = [CCSprite spriteWithFile:image];
-//            float offsetFraction = ((float) (i + 10)) / (units.count + 1);
-//            sprite.position = ccp(winSize.width * offsetFraction, winSize.height / 2);
-//            [self addChild:sprite];
-//            [movableUnits addObject:sprite];
-//        }
+        _highlightCastle = [CCSprite spriteWithFile:@"glow.png"];
+        _highlightCastle.position = CGPointMake(0, 0);
+//        _highlightCastle.visible = NO;
+        [self addChild:_highlightCastle];
 
         [self initMappings];
         self.mapData = [[MapData alloc] init];
@@ -150,14 +141,14 @@
     for (int i = 0; i < node.footmanNumber.intValue; i++) {
         CCSprite *sprite = [CCSprite spriteWithFile:footerImagePath];
         sprite.tag = armyTag;
-        sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.footmanNumber.intValue * 20, 2048 - node.coordinate.y - 20 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
+        sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.footmanNumber.intValue * 15, 2048 - node.coordinate.y - 20 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
         [self addChild:sprite];
     }
 
     for (int i = 0; i < node.knightNumber.intValue; i++) {
         CCSprite *sprite = [CCSprite spriteWithFile:knightImagePath];
         sprite.tag = armyTag;
-        sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.knightNumber.intValue * 20, 2048 - node.coordinate.y - 60 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
+        sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.knightNumber.intValue * 15, 2048 - node.coordinate.y - 60 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
         [self addChild:sprite];
     }
 
@@ -198,24 +189,49 @@
 }
 
 - (void)selectSpriteForTouch:(CGPoint)touchLocation {
-    CCSprite *newSprite = nil;
-    for (CCSprite *sprite in locations) {
-        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
-            newSprite = sprite;
-            NSLog(@"TOUCH");
+
+    double MIN_DISTANCE = 100;
+
+    MapNode *selectedNode = nil;
+
+    for (MapNode *node in self.mapData.nodes) {
+        double distance = findDistance(touchLocation, node.coordinate);
+        if (distance < MIN_DISTANCE) {
+            selectedNode = node;
             break;
         }
     }
-    if (newSprite != selSprite) {
-        [selSprite stopAllActions];
-        [selSprite runAction:[CCRotateTo actionWithDuration:0.1 angle:0]];
-        CCRotateTo *rotLeft = [CCRotateBy actionWithDuration:0.1 angle:-4.0];
-        CCRotateTo *rotCenter = [CCRotateBy actionWithDuration:0.1 angle:0.0];
-        CCRotateTo *rotRight = [CCRotateBy actionWithDuration:0.1 angle:4.0];
-        CCSequence *rotSeq = [CCSequence actions:rotLeft, rotCenter, rotRight, rotCenter, nil];
-        [newSprite runAction:[CCRepeatForever actionWithAction:rotSeq]];
-        selSprite = newSprite;
+
+    if (selectedNode == nil) {
+        NSLog(@"TOUCH TO FAR FROM CASTLES");
+//        _highlightCastle.visible = NO;
+        return;
     }
+
+    _highlightCastle.position = selectedNode.coordinate;
+//    _highlightCastle.visible = YES;
+
+
+    ///++++++++++++++++++++++++
+
+//    CCSprite *newSprite = nil;
+//    for (CCSprite *sprite in locations) {
+//        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
+//            newSprite = sprite;
+//            NSLog(@"TOUCH");
+//            break;
+//        }
+//    }
+//    if (newSprite != selSprite) {
+//        [selSprite stopAllActions];
+//        [selSprite runAction:[CCRotateTo actionWithDuration:0.1 angle:0]];
+//        CCRotateTo *rotLeft = [CCRotateBy actionWithDuration:0.1 angle:-4.0];
+//        CCRotateTo *rotCenter = [CCRotateBy actionWithDuration:0.1 angle:0.0];
+//        CCRotateTo *rotRight = [CCRotateBy actionWithDuration:0.1 angle:4.0];
+//        CCSequence *rotSeq = [CCSequence actions:rotLeft, rotCenter, rotRight, rotCenter, nil];
+//        [newSprite runAction:[CCRepeatForever actionWithAction:rotSeq]];
+//        selSprite = newSprite;
+//    }
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {

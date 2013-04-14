@@ -5,32 +5,42 @@
 
 
 #import "InputLayer.h"
+#import "MapData.h"
+#import "MapNode.h"
 
 void drawMapNode(id o);
+
+//double findDistance(CGPoint point1, CGPoint point2);
 
 @interface InputLayer (PrivateMethods)
 - (void)addButtons;
 @end
 
-@implementation InputLayer
 
--(NSMutableDictionary *)locations{
+
+@implementation InputLayer   {
+//    CCSprite *_highlightCastle;
+}
+
+- (NSMutableDictionary *)locations {
     if (!_locations) {
         _locations = [[NSMutableDictionary alloc] init];
     }
     return _locations;
 }
 
--(id) init
-{
-	if ((self = [super init]))
-	{
-		[self addButtons];
+- (id)init {
+    if ((self = [super init])) {
+        self.mapData = [[MapData alloc] init];
+
+        [self addButtons];
+
+
 
 //        UIPanGestureRecognizer *gestureRecognizerInput = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)] autorelease];
 //        
 //        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizerInput];
-        
+
 //		[self scheduleUpdate];
         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
                                                          priority:-1
@@ -40,7 +50,7 @@ void drawMapNode(id o);
 }
 
 
--(void) setInitialPositions {
+- (void)setInitialPositions {
     CGSize winSize = [CCDirector sharedDirector].winSize;
     NSArray *sprites = [self.locations allKeys];
     int i = 0;
@@ -72,34 +82,16 @@ void drawMapNode(id o);
     NSLog(@"The five menu was called");
 }
 
--(void) addButtons
-{
+- (void)addButtons {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    
-//    NSArray *units = [NSArray arrayWithObjects:
-//                      @"Soldier_P1.png", @"Tank_P1.png",
-//
-//    CCMenu *myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
-//    
-//    NSArray *units = [NSArray arrayWithObjects:
-//                      @"Soldier_P1.png", @"Tank_P1.png",
-//                      @"HQ_P1.png", @"Cannon_P1.png", nil];
-//    for (int i = 0; i < units.count; ++i) {
-//        NSString *image = [units objectAtIndex:i];
-//        CCSprite *sprite = [CCSprite spriteWithFile:image];
-//        float offsetFraction = ((float) (i + 1)) / (units.count + 1);
-//        sprite.position = ccp(winSize.width * offsetFraction, 32.0f);
-//        [self addChild:sprite];
-//        [self.buttons setObject:sprite forKey:image];
-//    }
-    
+
     CCMenuItemImage *commit = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onCommit:)];
     CCMenuItemImage *attack = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onAttack:)];
     CCMenuItemImage *defence = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onDefence:)];
     CCMenuItemImage *support = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onSupport:)];
     CCMenuItemImage *build = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onBuild:)];
-    
-	CCMenu * myMenu = [CCMenu menuWithItems:commit, attack, defence, support, build, nil];
+
+    CCMenu *myMenu = [CCMenu menuWithItems:commit, attack, defence, support, build, nil];
     [myMenu alignItemsHorizontally];
     myMenu.anchorPoint = CGPointZero;
     myMenu.position = ccp(winSize.width * 0.5, 32.0f);
@@ -114,31 +106,53 @@ void drawMapNode(id o);
 
 
 - (void)selectSpriteForTouch:(CGPoint)touchLocation {
-    CCSprite *newSprite = nil;
-    NSArray *sprites = [self.locations allKeys];
-    for (NSString *name in sprites) {
-        CCSprite *sprite = [self.locations valueForKey:name];
-        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
-            newSprite = sprite;
-            break;
-        }
-    }
-    if (newSprite != selSprite) {
-        [selSprite stopAllActions];
-        [selSprite runAction:[CCRotateTo actionWithDuration:0.1 angle:0]];
-        CCRotateTo *rotLeft = [CCRotateBy actionWithDuration:0.1 angle:-4.0];
-        CCRotateTo *rotCenter = [CCRotateBy actionWithDuration:0.1 angle:0.0];
-        CCRotateTo *rotRight = [CCRotateBy actionWithDuration:0.1 angle:4.0];
-        CCSequence *rotSeq = [CCSequence actions:rotLeft, rotCenter, rotRight, rotCenter, nil];
-        [newSprite runAction:[CCRepeatForever actionWithAction:rotSeq]];
-        selSprite = newSprite;
-    }
+//    double MIN_DISTANCE = 100;
+//
+//    MapNode *selectedNode = nil;
+//
+//    for (MapNode *node in self.mapData.nodes) {
+//        double distance = findDistance(touchLocation, node.coordinate);
+//        if (distance < MIN_DISTANCE) {
+//            selectedNode = node;
+//            break;
+//        }
+//    }
+//
+//    if (selectedNode == nil) {
+//        NSLog(@"TOUCH TO FAR FROM CASTLES");
+//        _highlightCastle.visible = NO;
+//        return;
+//    }
+//
+//    _highlightCastle.position = [self convertToNodeSpace:selectedNode.coordinate];
+//    _highlightCastle.visible = YES;
+
+
+//    CCSprite *newSprite = nil;
+//    NSArray *sprites = [self.locations allKeys];
+//    for (NSString *name in sprites) {
+//        CCSprite *sprite = [self.locations valueForKey:name];
+//        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
+//            newSprite = sprite;
+//            break;
+//        }
+//    }
+//    if (newSprite != selSprite) {
+//        [selSprite stopAllActions];
+//        [selSprite runAction:[CCRotateTo actionWithDuration:0.1 angle:0]];
+//        CCRotateTo *rotLeft = [CCRotateBy actionWithDuration:0.1 angle:-4.0];
+//        CCRotateTo *rotCenter = [CCRotateBy actionWithDuration:0.1 angle:0.0];
+//        CCRotateTo *rotRight = [CCRotateBy actionWithDuration:0.1 angle:4.0];
+//        CCSequence *rotSeq = [CCSequence actions:rotLeft, rotCenter, rotRight, rotCenter, nil];
+//        [newSprite runAction:[CCRepeatForever actionWithAction:rotSeq]];
+//        selSprite = newSprite;
+//    }
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     [self selectSpriteForTouch:touchLocation];
-    return TRUE;
+    return NO;
 }
 
 - (void)panForTranslation:(CGPoint)translation {
@@ -154,32 +168,13 @@ void drawMapNode(id o);
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-    
+
     CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
     oldTouchLocation = [[CCDirector sharedDirector] convertToGL:oldTouchLocation];
     oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
-    
+
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
     [self panForTranslation:translation];
 }
-//
-//- (void)handlePanFrom:(UIPanGestureRecognizer *)recognizer {
-//    
-//    if (recognizer.state == UIGestureRecognizerStateBegan) {
-//        
-//        CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-//        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-//        touchLocation = [self convertToNodeSpace:touchLocation];
-//        
-//        [self selectSpriteForTouch:touchLocation];
-//        
-//    } else if (recognizer.state == UIGestureRecognizerStateChanged) {
-//        
-//        CGPoint translation = [recognizer translationInView:recognizer.view];
-//        translation = ccp(translation.x, -translation.y);
-//        [self panForTranslation:translation];
-//        [recognizer setTranslation:CGPointZero inView:recognizer.view];
-//    }
-//}
 
 @end

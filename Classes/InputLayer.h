@@ -15,6 +15,8 @@
 }
 
 @property (nonatomic, strong) NSMutableDictionary * locations;
+@property (nonatomic, strong) MapData *mapData;
+
 -(void) setInitialPositions;
 
 @end

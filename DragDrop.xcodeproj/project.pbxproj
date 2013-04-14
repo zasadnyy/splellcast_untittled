@@ -116,6 +116,7 @@
 		7A0BB3860B0CAA78FDF7CF2E /* owl_small_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0BB30ADC433C8AA71CD1AD /* owl_small_castle.png */; };
 		7A0BB3FD45F092D1B32059B3 /* bunnies_large_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0BB637CD136D08422A15F1 /* bunnies_large_castle.png */; };
 		7A0BB42D00FD2BCE4B975D70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBFBCC3D5C73920A0EFFF /* Security.framework */; };
+		7A0BB43A90DC9907680D576C /* glow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0BB0F15C9A549D24D09E59 /* glow.png */; };
 		7A0BB4E9B69287940800ADCF /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB36056A75538E059F2F8 /* NotificationHelper.m */; };
 		7A0BB5653CA6B87AD1F28AEB /* owl_no_castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0BB0D76F9F65877F12E156 /* owl_no_castle.png */; };
 		7A0BB5A99BF393A208FBAF89 /* AddPlayerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB7AB36F029D2D5976472 /* AddPlayerRequest.m */; };
@@ -433,6 +434,7 @@
 		7A0BB04C4FDBD60263CC2F56 /* WorldObjPlayersOwls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldObjPlayersOwls.h; sourceTree = "<group>"; };
 		7A0BB0D76F9F65877F12E156 /* owl_no_castle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = owl_no_castle.png; sourceTree = "<group>"; };
 		7A0BB0EAD01A8ADF8BFF5B94 /* NodeArmy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeArmy.m; sourceTree = "<group>"; };
+		7A0BB0F15C9A549D24D09E59 /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
 		7A0BB130BFD837F56B2C3252 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		7A0BB13B7FE0730E90CE4917 /* HandshakeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandshakeCommand.h; sourceTree = "<group>"; };
 		7A0BB2059451BDE8F19E59DF /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
@@ -929,6 +931,7 @@
 				7A0BBAAC95A08EE0A865ABEE /* bunny_knight.png */,
 				7A0BBE8507774BA04BC03BF5 /* owl_footer.png */,
 				7A0BB939B1A697D01A705DA3 /* owl_knight.png */,
+				7A0BB0F15C9A549D24D09E59 /* glow.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1499,6 +1502,7 @@
 				7A0BB6CF03B291F45E7E1156 /* bunny_knight.png in Resources */,
 				7A0BB65495B2BE832063DAB2 /* owl_footer.png in Resources */,
 				7A0BB0D6D387A4603B3CF99C /* owl_knight.png in Resources */,
+				7A0BB43A90DC9907680D576C /* glow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
