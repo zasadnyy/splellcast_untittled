@@ -123,6 +123,7 @@
 
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
+    sprite.scale *= 1.25f;
     [self addChild:sprite];
     [locations addObject:sprite];
 
