@@ -9,6 +9,7 @@
 #import "MenuScene.h"
 #import "HelloWorldScene.h"
 #import "DragDropAppDelegate.h"
+#include "SimpleAudioEngine.h" 
 
 CCSprite *seeker1;
 CCSprite *cocosGuy;
@@ -22,6 +23,8 @@ CCSprite *cocosGuy;
 	MenuScene *layer = [MenuScene node];
     
 	[scene addChild: layer];
+    
+//    [[SimpleAudioEngine sharedEngine] playEffect:@"title.mp3"];
     
 	return scene;
 }
