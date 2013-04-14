@@ -6,8 +6,10 @@
 
 #import "InputLayer.h"
 
+void drawMapNode(id o);
+
 @interface InputLayer (PrivateMethods)
--(void) addButtons;
+- (void)addButtons;
 @end
 
 @implementation InputLayer
@@ -33,8 +35,8 @@
         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
                                                          priority:-1
                                                   swallowsTouches:YES];
-	}
-	return self;
+    }
+    return self;
 }
 
 - (void) doSomethingOne: (CCMenuItem  *) menuItem
@@ -84,8 +86,7 @@
 }
 
 
--(void) update:(ccTime)delta
-{
+- (void)update:(ccTime)delta {
 
 }
 
