@@ -23,13 +23,13 @@
 @implementation HelloWorld {
     CommunicationManager *_communicationManager;
 
-    NSDictionary *_nodeTypeSpriteMappingOwl;
-    NSDictionary *_nodeTypeSpriteMappingBunnies;
-    NSDictionary *_nodeTypeSpriteMappingNone;
-    NSDictionary *_ownerMapping;
+//    NSDictionary *_nodeTypeSpriteMappingOwl;
+//    NSDictionary *_nodeTypeSpriteMappingBunnies;
+//    NSDictionary *_nodeTypeSpriteMappingNone;
 }
 
 @synthesize mapData = _mapData;
+@synthesize ownerMapping, nodeTypeSpriteMappingOwl, nodeTypeSpriteMappingBunnies, nodeTypeSpriteMappingNone;
 
 + (id)scene {
     CCScene *scene = [CCScene node];
@@ -40,7 +40,7 @@
 
     InputLayer *inputLayer = [InputLayer node];
     [scene addChild:inputLayer z:1];
-    
+
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3"];
 
 //    UITapGestureRecognizer *gestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:scene action:@selector(handlePanFrom:)] autorelease];
@@ -74,7 +74,7 @@
 //        }
 
         [self initMappings];
-        _mapData = [[[MapData alloc] init] autorelease];
+        self.mapData = [[MapData alloc] init];
         [self drawMapNodes:_mapData];
 
         UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(makepinch:)];
@@ -97,10 +97,10 @@
 }
 
 - (void)initMappings {
-    _nodeTypeSpriteMappingOwl = [NSDictionary dictionaryWithObjectsAndKeys:@"owl_capital.png", NODE_TYPE_CAPITAL, @"owl_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"owl_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"owl_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
-    _nodeTypeSpriteMappingBunnies = [NSDictionary dictionaryWithObjectsAndKeys:@"bunnies_capital.png", NODE_TYPE_CAPITAL, @"bunnies_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"bunnies_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"bunnies_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
-    _nodeTypeSpriteMappingNone = [NSDictionary dictionaryWithObjectsAndKeys:@"none_capital.png", NODE_TYPE_CAPITAL, @"none_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"none_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"none_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
-    _ownerMapping = [NSDictionary dictionaryWithObjectsAndKeys:NODE_OWNER_BUNNIES, @"bunnies", NODE_OWNER_OWLS, @"owls", NODE_OWNER_NONE, @"none", nil];
+    self.nodeTypeSpriteMappingOwl = [NSDictionary dictionaryWithObjectsAndKeys:@"owl_capital.png", NODE_TYPE_CAPITAL, @"owl_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"owl_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"owl_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+    self.nodeTypeSpriteMappingBunnies = [NSDictionary dictionaryWithObjectsAndKeys:@"bunnies_capital.png", NODE_TYPE_CAPITAL, @"bunnies_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"bunnies_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"bunnies_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+    self.nodeTypeSpriteMappingNone = [NSDictionary dictionaryWithObjectsAndKeys:@"none_capital.png", NODE_TYPE_CAPITAL, @"none_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"none_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"none_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+    self.ownerMapping = [NSDictionary dictionaryWithObjectsAndKeys:NODE_OWNER_BUNNIES, @"bunnies", NODE_OWNER_OWLS, @"owls", NODE_OWNER_NONE, @"none", nil];
 }
 
 
@@ -114,11 +114,11 @@
 
     NSString *imagePath = @"default_node_marker.png";
     if ([NODE_OWNER_BUNNIES isEqualToString:node.owner]) {
-        imagePath = [_nodeTypeSpriteMappingBunnies valueForKey:node.nodeType];
+        imagePath = [self.nodeTypeSpriteMappingBunnies objectForKey:node.nodeType];
     } else if ([NODE_OWNER_OWLS isEqualToString:node.owner]) {
-        imagePath = [_nodeTypeSpriteMappingOwl valueForKey:node.nodeType];
+        imagePath = [self.nodeTypeSpriteMappingOwl objectForKey:node.nodeType];
     } else if ([NODE_OWNER_NONE isEqualToString:node.owner]) {
-        imagePath = [_nodeTypeSpriteMappingNone valueForKey:node.nodeType];
+        imagePath = [self.nodeTypeSpriteMappingNone objectForKey:node.nodeType];
     }
 
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
@@ -160,7 +160,7 @@
         sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.knightNumber.intValue * 20, 2048 - node.coordinate.y - 60 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
         [self addChild:sprite];
     }
-    
+
 }
 
 - (void)setUnits:(NSDictionary *)units {
@@ -202,7 +202,7 @@
     for (CCSprite *sprite in locations) {
         if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
             newSprite = sprite;
-             NSLog(@"TOUCH");
+            NSLog(@"TOUCH");
             break;
         }
     }
@@ -300,7 +300,7 @@
 
 - (void)processNewWorld:(NSNotification *)notification {
     WorldObj *newWorld = notification.object;
-    [self renderWorldObj:newWorld];
+    [self performSelectorOnMainThread:@selector(renderWorldObj:) withObject:newWorld waitUntilDone:YES];
 }
 
 - (void)renderWorldObj:(WorldObj *)world {
@@ -308,10 +308,15 @@
     [self drawMapNodes:_mapData];
 }
 
-- (void)updateMapData:(WorldObj *)world {
-    for (Node *node in world.world.nodes) {
+- (void)updateMapData:(WorldObj *)newWorld {
+    for (Node *node in newWorld.world.nodes) {
         MapNode *nodeToUpdate = [self findMapDataByNodeId:node.nodeId in:_mapData];
-        nodeToUpdate.owner = [_ownerMapping valueForKey:node.owner];
+
+        if (nodeToUpdate == nil) {
+            return;
+        }
+
+        nodeToUpdate.owner = [self.ownerMapping objectForKey:node.owner];
         if ([NODE_OWNER_NONE isEqualToString:nodeToUpdate.owner]) {
             nodeToUpdate.footmanNumber = [NSNumber numberWithInt:0];
             nodeToUpdate.knightNumber = [NSNumber numberWithInt:0];
@@ -328,15 +333,15 @@
 
 - (MapNode *)findMapDataByNodeId:(NSNumber *)nodeId in:(MapData *)mapData {
 
-    if (![_mapData.nodes isKindOfClass: [NSArray class]]) {
+    if ([mapData isKindOfClass:[MapData class]] && [mapData.nodes isKindOfClass:[NSMutableArray class]]) {
+        for (MapNode *node in mapData.nodes) {
+            if ([nodeId isEqualToNumber:node.nodeId]) {
+                return node;
+            }
+        }
+    } else {
         NSLog(@"map data in not NSArray!!!");
         return nil;
-    }
-
-    for (MapNode *node in _mapData.nodes) {
-        if ([nodeId isEqualToNumber:node.nodeId]) {
-            return node;
-        }
     }
     return nil;
 }
