@@ -7,8 +7,8 @@
 #import "HelloWorldScene.h"
 #import "InputLayer.h"
 #import "NotificationHelper.h"
-#import "Order.h"
 #import "WorldObj.h"
+#import "OrderObj.h"
 
 
 @implementation HelloWorld
@@ -206,7 +206,7 @@
     // render world
 }
 
-- (void)postOrder:(Order *)order {
+- (void)postOrder:(OrderObj *)order {
     [NotificationHelper postNotificationWithName:READY_TO_CONFIRM_ORDER andObject:order];
 }
 
