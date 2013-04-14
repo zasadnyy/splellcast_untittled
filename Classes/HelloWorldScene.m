@@ -68,15 +68,15 @@ double findDistance(CGPoint point1, CGPoint point2) {
         self.mapData = [[MapData alloc] init];
         [self drawMapNodes:_mapData];
 
-        UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(makepinch:)];
-
-        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinch];
+//        UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(makepinch:)];
+//
+//        [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinch];
 
         UIPanGestureRecognizer *gestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)] autorelease];
 
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
 
-        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+//        [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 
         _communicationManager = [[CommunicationManager alloc] init];
         [_communicationManager startGame];
@@ -114,6 +114,7 @@ double findDistance(CGPoint point1, CGPoint point2) {
 
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
+    sprite.scale *= 1.25f;
     [self addChild:sprite];
     [locations addObject:sprite];
 
@@ -154,18 +155,18 @@ double findDistance(CGPoint point1, CGPoint point2) {
 
 }
 
-- (void)setUnits:(NSDictionary *)units {
-    for (id unit in [units allKeys]) {
-        if ([unit isKindOfClass:[NSString class]]) {
-            CCSprite *sprite = [CCSprite spriteWithFile:(NSString *) unit];
-            sprite.position = [[units objectForKey:unit] CGPointValue];
-            [self addChild:sprite];
+//- (void)setUnits:(NSDictionary *)units {
+//    for (id unit in [units allKeys]) {
+//        if ([unit isKindOfClass:[NSString class]]) {
+//            CCSprite *sprite = [CCSprite spriteWithFile:(NSString *) unit];
+//            sprite.position = [[units objectForKey:unit] CGPointValue];
+//            [self addChild:sprite];
 //            [movableUnits addObject:sprite];
-        }
-    }
-}
+//        }
+//    }
+//}
 
-- (void)makepinch:(UIPinchGestureRecognizer *)pinch {
+//- (void)makepinch:(UIPinchGestureRecognizer *)pinch {
 //    if(pinch.state == UIGestureRecognizerStateEnded)
 //    {
 //        self.scale = pinch.scale;
@@ -179,7 +180,7 @@ double findDistance(CGPoint point1, CGPoint point2) {
 //    {
 //        pinch.view.transform = CGAffineTransformMakeScale(pinch.scale, pinch.scale);
 //    }
-}
+//}
 
 
 - (void)dealloc {
@@ -245,7 +246,6 @@ double findDistance(CGPoint point1, CGPoint point2) {
     CGPoint retval = newPos;
     retval.x = MIN(retval.x, 0);
     retval.x = MAX(retval.x, -background.contentSize.width + winSize.width);
-//    retval.y = self.position.y;
     retval.y = MIN(retval.y, 0);
     retval.y = MAX(retval.y, -background.contentSize.height + winSize.height);
     return retval;
