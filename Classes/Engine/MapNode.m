@@ -6,6 +6,7 @@
 
 
 #import "MapNode.h"
+#import "RandomHelper.h"
 
 NSString *const NODE_TYPE_CAPITAL = @"capital";
 NSString *const NODE_TYPE_LARGE_CASTLE = @"large_castle";
@@ -20,7 +21,7 @@ NSString *const NODE_OWNER_NONE = @"owner_none";
 
 }
 
-@synthesize nodeId, nodeType, neigborhoods, coordinate, owner;
+@synthesize nodeId, nodeType, neigborhoods, coordinate, owner, footmanNumber, knightNumber;
 
 - (id)initWithNodeId:(NSNumber *)aNodeId nodeType:(NSString *)aNodeType neigborhoods:(NSArray *)aNeigborhoods coordinate:(CGPoint)aCoordinate owner:(NSString *)anOwner {
     self = [super init];
@@ -30,6 +31,8 @@ NSString *const NODE_OWNER_NONE = @"owner_none";
         nodeId = [aNodeId retain];
         nodeType = [aNodeType copy];
         owner = [anOwner copy];
+        footmanNumber = [NSNumber numberWithInt:[RandomHelper getRandomNumberBetween:0 to:5]];
+        knightNumber = [NSNumber numberWithInt:[RandomHelper getRandomNumberBetween:0 to:5]];;
     }
 
     return self;
@@ -46,6 +49,8 @@ NSString *const NODE_OWNER_NONE = @"owner_none";
 + (id)objectWithNodeId:(NSNumber *)aNodeId nodeType:(NSString *)aNodeType neigborhoods:(NSArray *)aNeigborhoods coordinate:(CGPoint)aCoordinate owner:(NSString *)anOwner {
     return [[[MapNode alloc] initWithNodeId:aNodeId nodeType:aNodeType neigborhoods:aNeigborhoods coordinate:aCoordinate owner:anOwner] autorelease];
 }
+
+
 
 
 @end

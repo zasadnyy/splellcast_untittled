@@ -11,12 +11,21 @@
 #import "OrderObj.h"
 #import "MapNode.h"
 #import "MapData.h"
+#import "WorldObjWorld.h"
+#import "Node.h"
+#import "NodeArmy.h"
+#import "NodeArmyCrew.h"
+#import "RandomHelper.h"
+#import "CommunicationManager.h"
 
 
 @implementation HelloWorld {
+    CommunicationManager *_communicationManager;
+
     NSDictionary *_nodeTypeSpriteMappingOwl;
     NSDictionary *_nodeTypeSpriteMappingBunnies;
     NSDictionary *_nodeTypeSpriteMappingNone;
+    NSDictionary *_ownerMapping;
 }
 
 @synthesize mapData = _mapData;
@@ -60,7 +69,7 @@
         }
 
         [self initMappings];
-        _mapData = [[MapData alloc] init];
+        _mapData = [[[MapData alloc] init] autorelease];
         [self drawMapNodes:_mapData];
 
         UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(makepinch:)];
@@ -72,6 +81,10 @@
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
 
         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+
+        _communicationManager = [[CommunicationManager alloc] init];
+        [_communicationManager startGame];
+
         [self _registerToGetNotifications];
 
     }
@@ -82,6 +95,7 @@
     _nodeTypeSpriteMappingOwl = [NSDictionary dictionaryWithObjectsAndKeys:@"owl_capital.png", NODE_TYPE_CAPITAL, @"owl_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"owl_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"owl_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
     _nodeTypeSpriteMappingBunnies = [NSDictionary dictionaryWithObjectsAndKeys:@"bunnies_capital.png", NODE_TYPE_CAPITAL, @"bunnies_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"bunnies_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"bunnies_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
     _nodeTypeSpriteMappingNone = [NSDictionary dictionaryWithObjectsAndKeys:@"none_capital.png", NODE_TYPE_CAPITAL, @"none_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"none_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"none_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+    _ownerMapping = [NSDictionary dictionaryWithObjectsAndKeys:NODE_OWNER_BUNNIES, @"bunnies", NODE_OWNER_OWLS, @"owls", NODE_OWNER_NONE, @"none", nil];
 }
 
 
@@ -105,6 +119,37 @@
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
     [self addChild:sprite];
+
+    [self drawArmy:node];
+}
+
+- (void)drawArmy:(MapNode *)node {
+
+    NSString *footerImagePath = @"bunny_footer.png";
+    NSString *knightImagePath = @"bunny_knight.png";
+
+    if ([NODE_OWNER_OWLS isEqualToString:node.owner]) {
+        footerImagePath = @"owl_footer.png";
+        knightImagePath = @"owl_knight.png";
+    }
+
+    int to = 0;
+    int from = 0;
+
+    int dy = 0;
+
+    for (int i = 0; i < node.footmanNumber.intValue; i++) {
+        CCSprite *sprite = [CCSprite spriteWithFile:footerImagePath];
+        sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.footmanNumber.intValue * 20, 2048 - node.coordinate.y - 20 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
+        [self addChild:sprite];
+    }
+
+    for (int i = 0; i < node.knightNumber.intValue; i++) {
+        CCSprite *sprite = [CCSprite spriteWithFile:knightImagePath];
+        sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.knightNumber.intValue * 20, 2048 - node.coordinate.y - 60 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
+        [self addChild:sprite];
+    }
+
 }
 
 - (void)setUnits:(NSDictionary *)units {
@@ -243,12 +288,45 @@
 
 - (void)processNewWorld:(NSNotification *)notification {
     WorldObj *newWorld = notification.object;
+    [self renderWorldObj:newWorld];
+}
 
-    // render world
+- (void)renderWorldObj:(WorldObj *)world {
+    [self updateMapData:world];
+    [self drawMapNodes:_mapData];
+}
+
+- (void)updateMapData:(WorldObj *)world {
+    for (Node *node in world.world.nodes) {
+        MapNode *nodeToUpdate = [self findMapDataByNodeId:node.nodeId in:_mapData];
+        nodeToUpdate.owner = [_ownerMapping valueForKey:node.owner];
+        if ([NODE_OWNER_NONE isEqualToString:nodeToUpdate.owner]) {
+            nodeToUpdate.footmanNumber = [NSNumber numberWithInt:0];
+            nodeToUpdate.knightNumber = [NSNumber numberWithInt:0];
+        } else {
+            nodeToUpdate.footmanNumber = node.army.crew.footman;
+            nodeToUpdate.knightNumber = node.army.crew.knight;
+        }
+    }
 }
 
 - (void)postOrder:(OrderObj *)order {
     [NotificationHelper postNotificationWithName:READY_TO_CONFIRM_ORDER andObject:order];
+}
+
+- (MapNode *)findMapDataByNodeId:(NSNumber *)nodeId in:(MapData *)mapData {
+
+    if (![_mapData.nodes isKindOfClass:NSArray.class]) {
+        NSLog(@"map data in not NSArray!!!");
+        return nil;
+    }
+
+    for (MapNode *node in _mapData.nodes) {
+        if ([nodeId isEqualToNumber:node.nodeId]) {
+            return node;
+        }
+    }
+    return nil;
 }
 
 

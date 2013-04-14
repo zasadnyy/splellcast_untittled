@@ -12,7 +12,7 @@
 #import "CommunicationManager.h"
 
 @implementation RootViewController{
-        CommunicationManager *_communicationManager;
+//        CommunicationManager *_communicationManager;
 }
 
 /*
@@ -129,13 +129,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _communicationManager = [[CommunicationManager alloc] init];
-    [_communicationManager startGame];
+//    _communicationManager = [[CommunicationManager alloc] init];
+//    [_communicationManager startGame];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [_communicationManager killGame];
+//    [_communicationManager killGame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,7 +153,7 @@
 
 
 - (void)dealloc {
-    [_communicationManager release];
+//    [_communicationManager release];
     [super dealloc];
 }
 

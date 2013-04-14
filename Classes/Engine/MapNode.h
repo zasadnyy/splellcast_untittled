@@ -24,6 +24,8 @@ extern NSString *const NODE_OWNER_NONE;
 @property(strong, nonatomic) NSArray *neigborhoods;
 @property CGPoint coordinate;
 @property(strong, nonatomic) NSString *owner;
+@property(nonatomic) NSNumber *footmanNumber;
+@property(nonatomic) NSNumber *knightNumber;
 
 - (id)initWithNodeId:(NSNumber *)aNodeId nodeType:(NSString *)aNodeType neigborhoods:(NSArray *)aNeigborhoods coordinate:(CGPoint)aCoordinate owner:(NSString *)anOwner;
 
