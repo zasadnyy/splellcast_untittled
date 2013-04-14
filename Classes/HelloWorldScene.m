@@ -9,9 +9,17 @@
 #import "NotificationHelper.h"
 #import "WorldObj.h"
 #import "OrderObj.h"
+#import "MapNode.h"
+#import "MapData.h"
 
 
-@implementation HelloWorld
+@implementation HelloWorld {
+    NSDictionary *_nodeTypeSpriteMappingOwl;
+    NSDictionary *_nodeTypeSpriteMappingBunnies;
+    NSDictionary *_nodeTypeSpriteMappingNone;
+}
+
+@synthesize mapData = _mapData;
 
 + (id)scene {
     CCScene *scene = [CCScene node];
@@ -51,6 +59,10 @@
             [movableUnits addObject:sprite];
         }
 
+        [self initMappings];
+        _mapData = [[MapData alloc] init];
+        [self drawMapNodes:_mapData];
+
         UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(makepinch:)];
 
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:pinch];
@@ -64,6 +76,35 @@
 
     }
     return self;
+}
+
+- (void)initMappings {
+    _nodeTypeSpriteMappingOwl = [NSDictionary dictionaryWithObjectsAndKeys:@"owl_capital.png", NODE_TYPE_CAPITAL, @"owl_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"owl_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"owl_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+    _nodeTypeSpriteMappingBunnies = [NSDictionary dictionaryWithObjectsAndKeys:@"bunnies_capital.png", NODE_TYPE_CAPITAL, @"bunnies_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"bunnies_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"bunnies_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+    _nodeTypeSpriteMappingNone = [NSDictionary dictionaryWithObjectsAndKeys:@"none_capital.png", NODE_TYPE_CAPITAL, @"none_large_castle.png", NODE_TYPE_LARGE_CASTLE, @"none_small_castle.png", NODE_TYPE_SMALL_CASTLE, @"none_no_castle.png", NODE_TYPE_NO_CASTLE, nil];
+}
+
+
+- (void)drawMapNodes:(MapData *)data {
+    for (MapNode *node in data.nodes) {
+        [self drawMapNode:node];
+    }
+}
+
+- (void)drawMapNode:(MapNode *)node {
+
+    NSString *imagePath = @"default_node_marker.png";
+    if ([NODE_OWNER_BUNNIES isEqualToString:node.owner]) {
+        imagePath = [_nodeTypeSpriteMappingBunnies valueForKey:node.nodeType];
+    } else if ([NODE_OWNER_OWLS isEqualToString:node.owner]) {
+        imagePath = [_nodeTypeSpriteMappingOwl valueForKey:node.nodeType];
+    } else if ([NODE_OWNER_NONE isEqualToString:node.owner]) {
+        imagePath = [_nodeTypeSpriteMappingNone valueForKey:node.nodeType];
+    }
+
+    CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
+    sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
+    [self addChild:sprite];
 }
 
 - (void)setUnits:(NSDictionary *)units {

@@ -6,80 +6,79 @@
 
 #import "InputLayer.h"
 
+void drawMapNode(id o);
+
 @interface InputLayer (PrivateMethods)
--(void) addButtons;
+- (void)addButtons;
 @end
 
 @implementation InputLayer
 
--(id) init
-{
-	if ((self = [super init]))
-	{
-		[self addButtons];
 
-		[self scheduleUpdate];
+- (id)init {
+    if ((self = [super init])) {
+
+        [self addButtons];
+
+        [self scheduleUpdate];
         [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
                                                          priority:-1
                                                   swallowsTouches:YES];
-	}
-	return self;
+    }
+    return self;
 }
 
-- (void) doSomethingOne: (CCMenuItem  *) menuItem
-{
-	NSLog(@"The first menu was called");
-}
-- (void) doSomethingTwo: (CCMenuItem  *) menuItem
-{
-	NSLog(@"The second menu was called");
-}
-- (void) doSomethingThree: (CCMenuItem  *) menuItem
-{
-	NSLog(@"The third menu was called");
-}
-- (void) doSomethingFour: (CCMenuItem  *) menuItem
-{
-	NSLog(@"The four menu was called");
-}
-- (void) doSomethingFive: (CCMenuItem  *) menuItem
-{
-	NSLog(@"The five menu was called");
+- (void)doSomethingOne:(CCMenuItem *)menuItem {
+    NSLog(@"The first menu was called");
 }
 
--(void) addButtons
-{
+- (void)doSomethingTwo:(CCMenuItem *)menuItem {
+    NSLog(@"The second menu was called");
+}
+
+- (void)doSomethingThree:(CCMenuItem *)menuItem {
+    NSLog(@"The third menu was called");
+}
+
+- (void)doSomethingFour:(CCMenuItem *)menuItem {
+    NSLog(@"The four menu was called");
+}
+
+- (void)doSomethingFive:(CCMenuItem *)menuItem {
+    NSLog(@"The five menu was called");
+}
+
+- (void)addButtons {
     CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"Cannon_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
     CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"Helicopter_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingTwo:)];
     CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"Tank_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingThree:)];
     CCMenuItemImage *menuItem4 = [CCMenuItemImage itemFromNormalImage:@"HQ_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingFour:)];
     CCMenuItemImage *menuItem5 = [CCMenuItemImage itemFromNormalImage:@"Soldier_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingFive:)];
-    
+
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    
-	CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
+
+    CCMenu *myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
     myMenu.anchorPoint = CGPointZero;
     myMenu.position = ccp(winSize.width * 0.5f, 64.0f);
-    
-	[myMenu alignItemsHorizontally];
-    
-	[self addChild:myMenu];
+
+    [myMenu alignItemsHorizontally];
+
+    [self addChild:myMenu];
 }
 
 
--(void) update:(ccTime)delta
-{
+- (void)update:(ccTime)delta {
 
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	return YES;
+    return YES;
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
-    
+    CGPoint location = [touch locationInView:[touch view]];
+    CGPoint convertedLocation = [[CCDirector sharedDirector] convertToGL:location];
+
 }
 
 @end
