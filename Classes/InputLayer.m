@@ -49,16 +49,15 @@
 
 -(void) addButtons
 {
-    CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"myfirstbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
-    CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"mysecondbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingTwo:)];
-    CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"mythirdbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingThree:)];
-    CCMenuItemImage *menuItem4 = [CCMenuItemImage itemFromNormalImage:@"mythirdbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingFour:)];
-    CCMenuItemImage *menuItem5 = [CCMenuItemImage itemFromNormalImage:@"mythirdbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingFive:)];
+    CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"Cannon_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
+    CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"Helicopter_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingTwo:)];
+    CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"Tank_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingThree:)];
+    CCMenuItemImage *menuItem4 = [CCMenuItemImage itemFromNormalImage:@"HQ_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingFour:)];
+    CCMenuItemImage *menuItem5 = [CCMenuItemImage itemFromNormalImage:@"Soldier_P2.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingFive:)];
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
 	CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
-    myMenu.scale = 0.5f;
     myMenu.anchorPoint = CGPointZero;
     myMenu.position = ccp(winSize.width * 0.5f, 64.0f);
     

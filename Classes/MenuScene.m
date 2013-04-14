@@ -55,12 +55,12 @@ CCSprite *cocosGuy;
     CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"myfirstbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
     CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"mysecondbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingTwo:)];
     CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"mythirdbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingThree:)];
-    
+
     
 	CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, nil];
-    
 
 	[myMenu alignItemsVertically];
+//    [menuItem1 setBlendFunc: (ccBlendFunc) { GL_SRC_ALPHA, GL_ONE }];
     
 
 	[self addChild:myMenu];

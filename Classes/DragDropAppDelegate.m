@@ -46,6 +46,7 @@
 	
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
+    glBlendFunc(GL_ZERO, GL_SRC_COLOR);
 	
 	// To enable Hi-Red mode (iPhone4)
 	//	[director setContentScaleFactor:2];
