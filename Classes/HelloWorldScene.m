@@ -174,18 +174,18 @@
         [self panForTranslation:translation];
         [recognizer setTranslation:CGPointZero inView:recognizer.view];
 
-    } else if (recognizer.state == UIGestureRecognizerStateEnded) {
-
-        if (!selSprite) {
-            float scrollDuration = 0.2;
-            CGPoint velocity = [recognizer velocityInView:recognizer.view];
-            CGPoint newPos = ccpAdd(self.position, ccpMult(velocity, scrollDuration));
-            newPos = [self boundLayerPos:newPos];
-
-            [self stopAllActions];
-            CCMoveTo *moveTo = [CCMoveTo actionWithDuration:scrollDuration position:newPos];
-            [self runAction:[CCEaseOut actionWithAction:moveTo rate:1]];
-        }
+//    } else if (recognizer.state == UIGestureRecognizerStateEnded) {
+//
+//        if (!selSprite) {
+//            float scrollDuration = 0.2;
+//            CGPoint velocity = [recognizer velocityInView:recognizer.view];
+//            CGPoint newPos = ccpAdd(self.position, ccpMult(velocity, scrollDuration));
+//            newPos = [self boundLayerPos:newPos];
+//
+//            [self stopAllActions];
+//            CCMoveTo *moveTo = [CCMoveTo actionWithDuration:scrollDuration position:newPos];
+//            [self runAction:[CCEaseOut actionWithAction:moveTo rate:1]];
+//        }
 
     }
 }
