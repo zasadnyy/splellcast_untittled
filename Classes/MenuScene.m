@@ -39,29 +39,32 @@ CCSprite *cocosGuy;
     [self runGame];
 }
 
-- (void)doSomethingTwo:(CCMenuItem *)menuItem {
-    NSLog(@"The second menu was called");
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
-    [self runGame];
-}
-
-- (void)doSomethingThree:(CCMenuItem *)menuItem {
-    NSLog(@"The third menu was called");
-    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
-    [self runGame];
-}
+//- (void)doSomethingTwo:(CCMenuItem *)menuItem {
+//    NSLog(@"The second menu was called");
+//    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
+//    [self runGame];
+//}
+//
+//- (void)doSomethingThree:(CCMenuItem *)menuItem {
+//    NSLog(@"The third menu was called");
+//    [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
+//    [self runGame];
+//}
 
 
 - (void)setUpMenus {
 
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
     CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"myfirstbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
-    CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"mysecondbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingTwo:)];
-    CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"mythirdbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingThree:)];
+//    CCMenuItemImage *menuItem2 = [CCMenuItemImage itemFromNormalImage:@"mysecondbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingTwo:)];
+//    CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"mythirdbutton.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingThree:)];
 
 
-    CCMenu *myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, nil];
+    CCMenu *myMenu = [CCMenu menuWithItems:menuItem1, nil];
 
     [myMenu alignItemsVertically];
+     myMenu.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 //    [menuItem1 setBlendFunc: (ccBlendFunc) { GL_SRC_ALPHA, GL_ONE }];
 
 

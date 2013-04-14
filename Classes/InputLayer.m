@@ -15,10 +15,10 @@ void drawMapNode(id o);
 @implementation InputLayer
 
 -(NSMutableDictionary *)locations{
-    if (!_buttons) {
-        _buttons = [[NSMutableDictionary alloc] init];
+    if (!_locations) {
+        _locations = [[NSMutableDictionary alloc] init];
     }
-    return _buttons;
+    return _locations;
 }
 
 -(id) init
@@ -52,19 +52,23 @@ void drawMapNode(id o);
     }
 }
 
-- (void)doSomethingOne:(CCMenuItem *)menuItem {
+- (void)onCommit:(CCMenuItem *)menuItem {
     NSLog(@"The first menu was called");
 }
 
-- (void)doSomethingThree:(CCMenuItem *)menuItem {
+- (void)onAttack:(CCMenuItem *)menuItem {
     NSLog(@"The third menu was called");
 }
 
-- (void)doSomethingFour:(CCMenuItem *)menuItem {
+- (void)onDefence:(CCMenuItem *)menuItem {
     NSLog(@"The four menu was called");
 }
 
-- (void)doSomethingFive:(CCMenuItem *)menuItem {
+- (void)onSupport:(CCMenuItem *)menuItem {
+    NSLog(@"The five menu was called");
+}
+
+- (void)onBuild:(CCMenuItem *)menuItem {
     NSLog(@"The five menu was called");
 }
 
@@ -89,12 +93,13 @@ void drawMapNode(id o);
 //        [self.buttons setObject:sprite forKey:image];
 //    }
     
-    CCMenuItemImage *commit = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
-    CCMenuItemImage *attack = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
-    CCMenuItemImage *defence = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
-    CCMenuItemImage *support = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(doSomethingOne:)];
+    CCMenuItemImage *commit = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onCommit:)];
+    CCMenuItemImage *attack = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onAttack:)];
+    CCMenuItemImage *defence = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onDefence:)];
+    CCMenuItemImage *support = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onSupport:)];
+    CCMenuItemImage *build = [CCMenuItemImage itemFromNormalImage:@"Icon.png" selectedImage:@"button_selected.png" target:self selector:@selector(onBuild:)];
     
-	CCMenu * myMenu = [CCMenu menuWithItems:commit, attack, defence, support, nil];
+	CCMenu * myMenu = [CCMenu menuWithItems:commit, attack, defence, support, build, nil];
     [myMenu alignItemsHorizontally];
     myMenu.anchorPoint = CGPointZero;
     myMenu.position = ccp(winSize.width * 0.5, 32.0f);
