@@ -36,7 +36,7 @@
     position attributes, then they will override the camera.
  
 	IMPORTANT: Either your use the camera or the rotation/scale/position properties. You can't use both.
-    World coordinates won't work if you use the camera.
+    WorldDescriptor coordinates won't work if you use the camera.
 
     Limitations:
  

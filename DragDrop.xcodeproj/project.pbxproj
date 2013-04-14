@@ -99,21 +99,28 @@
 		5D8BDD9917199964007D4410 /* Tank_P2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8517199964007D4410 /* Tank_P2-hd.png */; };
 		5D8BDD9A17199964007D4410 /* Tank_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BDD8617199964007D4410 /* Tank_P2.png */; };
 		7A0BB0AEDCF3130029C48B06 /* CommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB280B3943EA7B3D57629 /* CommunicationManager.m */; };
+		7A0BB0BD211AEFB70F48C0A4 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB52319634CCD0D596400 /* Node.m */; };
+		7A0BB0CFF0C1092EC6BFA483 /* WorldObjPlayersOwls.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB8C3A92B050D0CE5D303 /* WorldObjPlayersOwls.m */; };
 		7A0BB1AEF1B8D09E4CF81647 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BB130BFD837F56B2C3252 /* libicucore.dylib */; };
+		7A0BB25E397EEA1932175931 /* WorldObjPlayersBunnies.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBE89DEB95196BD2C2FCC /* WorldObjPlayersBunnies.m */; };
 		7A0BB42D00FD2BCE4B975D70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBFBCC3D5C73920A0EFFF /* Security.framework */; };
 		7A0BB4A48D985D65E51FBD7B /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB4632B30661AC5DC3CD6 /* Order.m */; };
 		7A0BB4E9B69287940800ADCF /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB36056A75538E059F2F8 /* NotificationHelper.m */; };
 		7A0BB5A99BF393A208FBAF89 /* AddPlayerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB7AB36F029D2D5976472 /* AddPlayerRequest.m */; };
+		7A0BB733C1B4D2C9F744D3BA /* WorldObjPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBADED8A5D3437599FF01 /* WorldObjPlayers.m */; };
 		7A0BB769B6D1CEC87E18708D /* SessionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB5D5B84A4B9D063D844C /* SessionInfo.m */; };
 		7A0BB772B2B10E3A59D5129A /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB393740A533AF14CD98A /* BaseRequest.m */; };
+		7A0BB7C818E1C8DCF0CF9A0B /* WorldObjWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB8A56526630CC7260C30 /* WorldObjWorld.m */; };
 		7A0BB888045A3246C88012FE /* SRWebSocketExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */; };
-		7A0BB89AD9B2883AC6FBDCEC /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB2742F56B822528C32CE /* World.m */; };
+		7A0BB8B8C10FC65F86FF9FDE /* NodeArmy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB0EAD01A8ADF8BFF5B94 /* NodeArmy.m */; };
 		7A0BB8C46C7F9E355536C0FF /* GameStartCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBC6B413902CC10949EDE /* GameStartCommand.m */; };
 		7A0BB9268AAF326D6227708F /* HandshakeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBD9074159844AD727754 /* HandshakeCommand.m */; };
 		7A0BBC759740F8DDA7E227DB /* CommandData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB306FEA5CAD03E1A5263 /* CommandData.m */; };
 		7A0BBE0D428F0B5F12D781A4 /* CommandProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB84FA011EAE398C44341 /* CommandProcessor.m */; };
 		7A0BBE345789E956894ADE1E /* WebSocketDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */; };
+		7A0BBF6D696C91FFDBFBF050 /* NodeArmyCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BB3F2EEA1AFC3DAD33AD9 /* NodeArmyCrew.m */; };
 		7A0BBF84EF88E709A9B811A3 /* BaseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBB98FACBA4C2A664A42D /* BaseCommand.m */; };
+		7A0BBF91C115CF05F51323AC /* WorldObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0BBA82EFBD49B53472105D /* WorldObj.m */; };
 		7A0BBFDD01D1BBA50F393D06 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A0BBD9CD39C20022E88253D /* CFNetwork.framework */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
@@ -389,33 +396,47 @@
 		5D8BDD8517199964007D4410 /* Tank_P2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank_P2-hd.png"; sourceTree = "<group>"; };
 		5D8BDD8617199964007D4410 /* Tank_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank_P2.png; sourceTree = "<group>"; };
 		7A0BB00D32144E43F134084E /* CommandProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandProcessor.h; sourceTree = "<group>"; };
+		7A0BB04C4FDBD60263CC2F56 /* WorldObjPlayersOwls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldObjPlayersOwls.h; sourceTree = "<group>"; };
+		7A0BB0EAD01A8ADF8BFF5B94 /* NodeArmy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeArmy.m; sourceTree = "<group>"; };
 		7A0BB130BFD837F56B2C3252 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		7A0BB13B7FE0730E90CE4917 /* HandshakeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandshakeCommand.h; sourceTree = "<group>"; };
 		7A0BB2059451BDE8F19E59DF /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
-		7A0BB2742F56B822528C32CE /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		7A0BB26CC7A5AD61FCB16193 /* WorldObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldObj.h; sourceTree = "<group>"; };
 		7A0BB280B3943EA7B3D57629 /* CommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationManager.m; sourceTree = "<group>"; };
 		7A0BB2DB54A6422334BA0E5D /* CommandData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandData.h; sourceTree = "<group>"; };
 		7A0BB306FEA5CAD03E1A5263 /* CommandData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandData.m; sourceTree = "<group>"; };
 		7A0BB36056A75538E059F2F8 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
 		7A0BB393740A533AF14CD98A /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		7A0BB3F2EEA1AFC3DAD33AD9 /* NodeArmyCrew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeArmyCrew.m; sourceTree = "<group>"; };
 		7A0BB4632B30661AC5DC3CD6 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		7A0BB4E70E01394A0D6C7BEA /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		7A0BB50A11C2B73AFDB667D8 /* SessionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionInfo.h; sourceTree = "<group>"; };
+		7A0BB52319634CCD0D596400 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 		7A0BB5D5B84A4B9D063D844C /* SessionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionInfo.m; sourceTree = "<group>"; };
+		7A0BB5EEB800494785BF6819 /* NodeArmy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeArmy.h; sourceTree = "<group>"; };
 		7A0BB653990255F2045A89D2 /* GameStartCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartCommand.h; sourceTree = "<group>"; };
 		7A0BB7072053EFAECF67AA04 /* SRWebSocketExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocketExtension.h; sourceTree = "<group>"; };
 		7A0BB7AB36F029D2D5976472 /* AddPlayerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayerRequest.m; sourceTree = "<group>"; };
 		7A0BB8199159A7D19B437B40 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		7A0BB84FA011EAE398C44341 /* CommandProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandProcessor.m; sourceTree = "<group>"; };
+		7A0BB8A56526630CC7260C30 /* WorldObjWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldObjWorld.m; sourceTree = "<group>"; };
+		7A0BB8C3A92B050D0CE5D303 /* WorldObjPlayersOwls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldObjPlayersOwls.m; sourceTree = "<group>"; };
+		7A0BB9E80446EDA830D88B92 /* NodeArmyCrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeArmyCrew.h; sourceTree = "<group>"; };
 		7A0BB9FE28FAAB6590538893 /* WebSocketDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketDelegate.h; sourceTree = "<group>"; };
+		7A0BBA82EFBD49B53472105D /* WorldObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldObj.m; sourceTree = "<group>"; };
+		7A0BBADED8A5D3437599FF01 /* WorldObjPlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldObjPlayers.m; sourceTree = "<group>"; };
+		7A0BBB0CBEA245EC7E8326D0 /* WorldObjWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldObjWorld.h; sourceTree = "<group>"; };
 		7A0BBB615F14B70A6B4FB328 /* CommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationManager.h; sourceTree = "<group>"; };
 		7A0BBB98FACBA4C2A664A42D /* BaseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCommand.m; sourceTree = "<group>"; };
+		7A0BBC5F873C85AB8CC7C9D5 /* WorldObjPlayersBunnies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldObjPlayersBunnies.h; sourceTree = "<group>"; };
 		7A0BBC6B413902CC10949EDE /* GameStartCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStartCommand.m; sourceTree = "<group>"; };
 		7A0BBC7977CA84293AD49201 /* BaseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCommand.h; sourceTree = "<group>"; };
 		7A0BBCD84FB54351DB18259F /* WebSocketDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketDelegate.m; sourceTree = "<group>"; };
+		7A0BBD57C076522C1D4E4FEB /* WorldObjPlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldObjPlayers.h; sourceTree = "<group>"; };
 		7A0BBD9074159844AD727754 /* HandshakeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandshakeCommand.m; sourceTree = "<group>"; };
 		7A0BBD9CD39C20022E88253D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		7A0BBDD91035D9F9CA2ED2BB /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		7A0BBE6D90E1EB1DE56B95FE /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		7A0BBE89DEB95196BD2C2FCC /* WorldObjPlayersBunnies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldObjPlayersBunnies.m; sourceTree = "<group>"; };
 		7A0BBF24EC9D0E542933821E /* AddPlayerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayerRequest.h; sourceTree = "<group>"; };
 		7A0BBF6198C5D285E9EA1B09 /* SRWebSocketExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocketExtension.m; sourceTree = "<group>"; };
 		7A0BBFBCC3D5C73920A0EFFF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -927,10 +948,24 @@
 		7A0BBD046C0A96CE59C23269 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7A0BB2742F56B822528C32CE /* World.m */,
-				7A0BBDD91035D9F9CA2ED2BB /* World.h */,
 				7A0BB4632B30661AC5DC3CD6 /* Order.m */,
 				7A0BB4E70E01394A0D6C7BEA /* Order.h */,
+				7A0BBE6D90E1EB1DE56B95FE /* Node.h */,
+				7A0BB52319634CCD0D596400 /* Node.m */,
+				7A0BB5EEB800494785BF6819 /* NodeArmy.h */,
+				7A0BB0EAD01A8ADF8BFF5B94 /* NodeArmy.m */,
+				7A0BB9E80446EDA830D88B92 /* NodeArmyCrew.h */,
+				7A0BB3F2EEA1AFC3DAD33AD9 /* NodeArmyCrew.m */,
+				7A0BB26CC7A5AD61FCB16193 /* WorldObj.h */,
+				7A0BBA82EFBD49B53472105D /* WorldObj.m */,
+				7A0BBD57C076522C1D4E4FEB /* WorldObjPlayers.h */,
+				7A0BBADED8A5D3437599FF01 /* WorldObjPlayers.m */,
+				7A0BBC5F873C85AB8CC7C9D5 /* WorldObjPlayersBunnies.h */,
+				7A0BBE89DEB95196BD2C2FCC /* WorldObjPlayersBunnies.m */,
+				7A0BB04C4FDBD60263CC2F56 /* WorldObjPlayersOwls.h */,
+				7A0BB8C3A92B050D0CE5D303 /* WorldObjPlayersOwls.m */,
+				7A0BBB0CBEA245EC7E8326D0 /* WorldObjWorld.h */,
+				7A0BB8A56526630CC7260C30 /* WorldObjWorld.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1366,11 +1401,18 @@
 				7A0BB0AEDCF3130029C48B06 /* CommunicationManager.m in Sources */,
 				7A0BB4E9B69287940800ADCF /* NotificationHelper.m in Sources */,
 				7A0BB8C46C7F9E355536C0FF /* GameStartCommand.m in Sources */,
-				7A0BB89AD9B2883AC6FBDCEC /* World.m in Sources */,
 				7A0BB4A48D985D65E51FBD7B /* Order.m in Sources */,
 				5D3686A1171A1F6A00656EF8 /* InputLayer.m in Sources */,
 				5D3686A2171A1F6A00656EF8 /* MenuScene.m in Sources */,
 				5D3686A3171A1F6A00656EF8 /* Unit.m in Sources */,
+				7A0BB0BD211AEFB70F48C0A4 /* Node.m in Sources */,
+				7A0BB8B8C10FC65F86FF9FDE /* NodeArmy.m in Sources */,
+				7A0BBF6D696C91FFDBFBF050 /* NodeArmyCrew.m in Sources */,
+				7A0BBF91C115CF05F51323AC /* WorldObj.m in Sources */,
+				7A0BB733C1B4D2C9F744D3BA /* WorldObjPlayers.m in Sources */,
+				7A0BB25E397EEA1932175931 /* WorldObjPlayersBunnies.m in Sources */,
+				7A0BB0CFF0C1092EC6BFA483 /* WorldObjPlayersOwls.m in Sources */,
+				7A0BB7C818E1C8DCF0CF9A0B /* WorldObjWorld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
