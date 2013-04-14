@@ -23,6 +23,8 @@
     InputLayer *inputLayer = [InputLayer node];
     [scene addChild:inputLayer z:1];
 
+//    UITapGestureRecognizer *gestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:scene action:@selector(handlePanFrom:)] autorelease];
+//     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:gestureRecognizer];
     return scene;
 }
 
@@ -36,20 +38,20 @@
         [self addChild:background];
         [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
 
-        movableUnits = [[NSMutableArray alloc] init];
-        NSArray *units = [NSArray arrayWithObjects:
-                @"Soldier_P1.png", @"Tank_P1.png",
-                @"HQ_P1.png", @"Cannon_P1.png",
-                @"Soldier_P1.png", @"Tank_P1.png",
-                @"HQ_P1.png", @"Cannon_P1.png", nil];
-        for (int i = 0; i < units.count; ++i) {
-            NSString *image = [units objectAtIndex:i];
-            CCSprite *sprite = [CCSprite spriteWithFile:image];
-            float offsetFraction = ((float) (i + 10)) / (units.count + 1);
-            sprite.position = ccp(winSize.width * offsetFraction, winSize.height / 2);
-            [self addChild:sprite];
-            [movableUnits addObject:sprite];
-        }
+//        movableUnits = [[NSMutableArray alloc] init];
+//        NSArray *units = [NSArray arrayWithObjects:
+//                @"Soldier_P1.png", @"Tank_P1.png",
+//                @"HQ_P1.png", @"Cannon_P1.png",
+//                @"Soldier_P1.png", @"Tank_P1.png",
+//                @"HQ_P1.png", @"Cannon_P1.png", nil];
+//        for (int i = 0; i < units.count; ++i) {
+//            NSString *image = [units objectAtIndex:i];
+//            CCSprite *sprite = [CCSprite spriteWithFile:image];
+//            float offsetFraction = ((float) (i + 10)) / (units.count + 1);
+//            sprite.position = ccp(winSize.width * offsetFraction, winSize.height / 2);
+//            [self addChild:sprite];
+//            [movableUnits addObject:sprite];
+//        }
 
         UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(makepinch:)];
 
