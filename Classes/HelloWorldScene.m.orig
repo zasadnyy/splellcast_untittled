@@ -11,13 +11,16 @@
 #import "OrderObj.h"
 #import "MapNode.h"
 #import "MapData.h"
+<<<<<<< HEAD
 #import "WorldObjWorld.h"
 #import "Node.h"
 #import "NodeArmy.h"
 #import "NodeArmyCrew.h"
 #import "RandomHelper.h"
 #import "CommunicationManager.h"
+=======
 #include "SimpleAudioEngine.h" 
+>>>>>>> 872f57e281243c635f0fe97a09f79c8003075804
 
 
 @implementation HelloWorld {
@@ -124,7 +127,7 @@
     CCSprite *sprite = [CCSprite spriteWithFile:imagePath];
     sprite.position = ccp(node.coordinate.x, 2048 - node.coordinate.y);
     [self addChild:sprite];
-    [locations addObject:sprite];
+<<<<<<< HEAD
 
     [self drawArmy:node];
 }
@@ -139,9 +142,6 @@
         knightImagePath = @"owl_knight.png";
     }
 
-    int armyTag = 0x123;
-    [self removeChildByTag:armyTag cleanup:YES];
-
     int to = 0;
     int from = 0;
 
@@ -149,30 +149,21 @@
 
     for (int i = 0; i < node.footmanNumber.intValue; i++) {
         CCSprite *sprite = [CCSprite spriteWithFile:footerImagePath];
-        sprite.tag = armyTag;
         sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.footmanNumber.intValue * 20, 2048 - node.coordinate.y - 20 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
         [self addChild:sprite];
     }
 
     for (int i = 0; i < node.knightNumber.intValue; i++) {
         CCSprite *sprite = [CCSprite spriteWithFile:knightImagePath];
-        sprite.tag = armyTag;
         sprite.position = ccp(node.coordinate.x + 20 + i * 20 + [RandomHelper getRandomNumberBetween:from to:to] - node.knightNumber.intValue * 20, 2048 - node.coordinate.y - 60 - i * dy + [RandomHelper getRandomNumberBetween:from to:to]);
         [self addChild:sprite];
     }
-    
+
+=======
+    [locations addObject:sprite];
+>>>>>>> 872f57e281243c635f0fe97a09f79c8003075804
 }
 
-- (void)setUnits:(NSDictionary *)units {
-    for (id unit in [units allKeys]) {
-        if ([unit isKindOfClass:[NSString class]]) {
-            CCSprite *sprite = [CCSprite spriteWithFile:(NSString *) unit];
-            sprite.position = [[units objectForKey:unit] CGPointValue];
-            [self addChild:sprite];
-//            [movableUnits addObject:sprite];
-        }
-    }
-}
 
 - (void)makepinch:(UIPinchGestureRecognizer *)pinch {
 //    if(pinch.state == UIGestureRecognizerStateEnded)
@@ -328,7 +319,7 @@
 
 - (MapNode *)findMapDataByNodeId:(NSNumber *)nodeId in:(MapData *)mapData {
 
-    if (![_mapData.nodes isKindOfClass: [NSArray class]]) {
+    if (![_mapData.nodes isKindOfClass:NSArray.class]) {
         NSLog(@"map data in not NSArray!!!");
         return nil;
     }
