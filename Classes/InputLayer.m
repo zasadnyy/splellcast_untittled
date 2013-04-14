@@ -14,7 +14,7 @@ void drawMapNode(id o);
 
 @implementation InputLayer
 
--(NSMutableDictionary *)buttons{
+-(NSMutableDictionary *)locations{
     if (!_buttons) {
         _buttons = [[NSMutableDictionary alloc] init];
     }
@@ -42,10 +42,10 @@ void drawMapNode(id o);
 
 -(void) setInitialPositions {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    NSArray *sprites = [self.buttons allKeys];
+    NSArray *sprites = [self.locations allKeys];
     int i = 0;
     for (NSString *name in sprites) {
-        CCSprite *sprite = [self.buttons valueForKey:name];
+        CCSprite *sprite = [self.locations valueForKey:name];
         float offsetFraction = ((float) (i + 1)) / (sprites.count + 1);
         sprite.position = ccp(winSize.width * offsetFraction, 32.0f);
         i++;
@@ -110,9 +110,9 @@ void drawMapNode(id o);
 
 - (void)selectSpriteForTouch:(CGPoint)touchLocation {
     CCSprite *newSprite = nil;
-    NSArray *sprites = [self.buttons allKeys];
+    NSArray *sprites = [self.locations allKeys];
     for (NSString *name in sprites) {
-        CCSprite *sprite = [self.buttons valueForKey:name];
+        CCSprite *sprite = [self.locations valueForKey:name];
         if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
             newSprite = sprite;
             break;

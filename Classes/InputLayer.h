@@ -14,7 +14,7 @@
     CCSprite * selSprite;
 }
 
-@property (nonatomic, strong) NSMutableDictionary * buttons;
+@property (nonatomic, strong) NSMutableDictionary * locations;
 -(void) setInitialPositions;
 
 @end
