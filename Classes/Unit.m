@@ -21,8 +21,7 @@
 -(id) initWithShipImage
 {
 	if ((self = [super initWithSpriteFrameName:@"Helcopter_P1.png"]))
-	{
-        // call "update" for every frame		
+	{	
 		[self scheduleUpdate];
 	}
 	return self;

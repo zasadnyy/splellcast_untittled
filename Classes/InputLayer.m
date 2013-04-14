@@ -57,16 +57,13 @@
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
-	// Create a menu and add your menu items to it
 	CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
     myMenu.scale = 0.5f;
     myMenu.anchorPoint = CGPointZero;
     myMenu.position = ccp(winSize.width * 0.5f, 64.0f);
     
-	// Arrange the menu items vertically
 	[myMenu alignItemsHorizontally];
     
-	// add the menu to your scene
 	[self addChild:myMenu];
 }
 

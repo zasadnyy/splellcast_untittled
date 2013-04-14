@@ -3,34 +3,30 @@
 //  DragDrop
 //
 
-// Import the interfaces
+
 #import "HelloWorldScene.h"
 #import "InputLayer.h"
 #import "NotificationHelper.h"
 #import "World.h"
 #import "Order.h"
-// HelloWorld implementation
+
+
 @implementation HelloWorld
 
 +(id) scene
 {
-	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
-	// 'layer' is an autorelease object.
 	HelloWorld *layer = [HelloWorld node];
 	
-	// add layer as a child to scene
 	[scene addChild: layer z:0];
     
     InputLayer* inputLayer = [InputLayer node];
     [scene addChild:inputLayer z:1];
 	
-	// return the scene
 	return scene;
 }
 
-// on "init" you need to initialize your instance
 -(id) init {
     if((self = [super init])) {		
         CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -101,7 +97,6 @@
 
 
 
-// on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
 	[movableUnits release];
