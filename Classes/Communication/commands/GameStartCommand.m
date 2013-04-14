@@ -8,8 +8,8 @@
 #import "BaseCommand.h"
 #import "GameStartCommand.h"
 #import "CommandData.h"
-#import "World.h"
 #import "NotificationHelper.h"
+#import "WorldObj.h"
 
 
 @implementation GameStartCommand {
@@ -21,14 +21,15 @@
 
 - (BOOL)process:(CommandData *)data {
 
-    World *world = [self parseWorld:data.messageData];
+    WorldObj *world = [self parseWorld:data.messageData];
     [NotificationHelper postNotificationWithName:WORLD_OBJECT_ARRIVED andObject:world];
 
     return YES;
 }
 
-- (World *)parseWorld:(NSDictionary *)messageData {
-    return [[World alloc] init];
+- (WorldObj *)parseWorld:(NSDictionary *)messageData {
+    WorldObj *worldObj = [WorldObj instanceFromDictionary:messageData];
+    return worldObj;
 }
 
 
